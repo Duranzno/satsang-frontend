@@ -1,8 +1,9 @@
-import Container from '@material-ui/core/Container';
-import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
-import ProTip from '../src/ProTip';
-import Copyright from '../src/Copyright';
+import Container from "@material-ui/core/Container"
+import Typography from "@material-ui/core/Typography"
+import Box from "@material-ui/core/Box"
+
+import ProTip from "../src/ProTip"
+import Copyright from "../src/Copyright"
 
 export default function Index() {
   return (
@@ -15,6 +16,5 @@ export default function Index() {
         <Copyright />
       </Box>
     </Container>
-  );
+  )
 }
-
