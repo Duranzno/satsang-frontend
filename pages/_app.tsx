@@ -3,10 +3,11 @@ import Head from "next/head"
 import { ThemeProvider } from "@material-ui/core/styles"
 import CssBaseline from "@material-ui/core/CssBaseline"
 import { AppProps } from "next/dist/next-server/lib/router/router"
+import theme from "../src/styles/theme"
 
-import theme from "../src/theme"
-
-
+if (process.env.NODE_ENV !== "production") {
+  require("../mocks")
+}
 function MyApp({ Component, pageProps }: AppProps) {
   React.useEffect(() => {
     // Remove the server-side injected CSS.

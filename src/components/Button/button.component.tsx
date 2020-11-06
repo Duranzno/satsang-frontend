@@ -1,11 +1,14 @@
-
-import * as React from "react";
+import * as React from "react"
 import { Button } from "@material-ui/core"
 type Props = {
-  text: string;
-};
+  text: string
+}
 
-const B: React.FC<Props> = ({ text }) => <Button color="primary" variant="contained">
-  {text}
-</Button>;
+const B: React.FC<Props> = ({ text }) => {
+  return (
+    <Button color="primary" variant="contained">
+      {text}
+    </Button>
+  )
+}
 export default B

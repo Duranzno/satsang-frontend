@@ -1,25 +1,36 @@
 {
   "root": true,
   "parser": "@typescript-eslint/parser",
-  "parserOptions": { "project": "./tsconfig.json" },  
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
   "env": {
     "es2020": true
   },
-  "plugins": ["jsx-a11y", "import", "eslint-comments"],
+  "ignorePatterns": [
+    "*.js",
+    "public/*.js",
+    "mocks"
+  ],
+  "plugins": [
+    "jsx-a11y",
+    "import",
+    "eslint-comments"
+  ],
   "extends": [
     "eslint:recommended",
     "plugin:eslint-comments/recommended",
     "plugin:@typescript-eslint/recommended",
     "prettier",
     "prettier/@typescript-eslint",
-    "react-app", 
+    "react-app",
     "plugin:jsx-a11y/recommended"
   ],
   "rules": {
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "eslint-comments/no-unused-disable": "error",
-    "@typescript-eslint/ban-ts-comment":"off",
-    "@typescript-eslint/ban-types":"off",
+    "@typescript-eslint/ban-ts-comment": "off",
+    "@typescript-eslint/ban-types": "off",
     "import/no-anonymous-default-export": "error",
     "import/no-webpack-loader-syntax": "off",
     "react/react-in-jsx-scope": "off", // React is always in scope with Blitz
