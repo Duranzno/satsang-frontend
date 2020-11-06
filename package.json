@@ -17,8 +17,8 @@
     "test:lint": "eslint src --ext .ts --ext .tsx",
     "test:prettier": "prettier \"{src,pages,test}/**/*.ts[x]\" -l ",
     "test:spelling": "cspell \"{README.md,.github/*.md,{src,pages}/**/*.ts[x]}\"",
-    "test:unit": "",
-    "test:watch": "jest --watch",
+    "test:unit": "jest",
+    "watch:test": "jest --watch",
     "pre-commit": "git-branch-is -q main && yarn fix && yarn test || echo No hooks needed on pre-commit for this branch  ",
     "pre-push": "git-branch-is -q main && npm run lint && npm run test || echo No hooks needed on pre-push for this branch ",
     "version": "standard-version"
