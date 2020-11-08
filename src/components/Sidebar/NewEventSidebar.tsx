@@ -2,7 +2,7 @@ import React from "react"
 import Drawer from "@material-ui/core/Drawer"
 import NewEventForm from "./NewEventForm"
 import CloseIcon from '@material-ui/icons/Close';
-
+import { ClickAwayListener } from '@material-ui/core';
 /**
  * This is the Sidebar that will show:
  *  * The user's next schedule events
@@ -16,12 +16,15 @@ interface Props {
 }
 const NewEventSidebar: React.FC<Props> = ({ open, onClose }) => {
   return (
+    
     <div>
         
-      <Drawer anchor="right" open={open} onClose={() => onClose()}>
-        <NewEventForm />
-      </Drawer>
+        <Drawer anchor="right" open={open} onClose={()=> onClose()}>
+            <NewEventForm />
+        </Drawer>
+        
     </div>
+    
   )
 }
 
