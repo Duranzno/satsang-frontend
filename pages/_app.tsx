@@ -37,8 +37,9 @@ function MyApp({ Component, pageProps }: AppProps) {
         <Component {...pageProps} />
         <StaticSidebar >
           <TimelineSidebar events={events} openNewEvent={()=> setSidebarOpen(true)} />
-          <NewEventSidebar open={sidebarOpen} onClose={()=>onClose}  />
         </StaticSidebar>
+        <NewEventSidebar open={sidebarOpen} onClose={()=> onClose()}  />
+
          
       </ThemeProvider>
       
