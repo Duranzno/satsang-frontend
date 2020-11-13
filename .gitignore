@@ -32,4 +32,4 @@ yarn-error.log*
 
 # vercel
 .vercel
-src/generated-types.tsx
+src/interfaces/generated-types.tsx

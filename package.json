@@ -21,8 +21,8 @@
     "test:unit": "jest",
     "watch:test": "jest --watch",
     "check-gen": "node checkForGeneratedType.js",
-    "generate-fetcher": "yarn restful-react import --url http://https://satsang-app.herokuapp.com//json --output src/generated-types.tsx",
-    "postgenerate-fetcher": "prettier FETCHERS.d.tsx --write",
+    "generate-fetcher": "yarn restful-react import --url https://satsang-app.herokuapp.com/json --output src/interfaces/generated-types.tsx",
+    "postgenerate-fetcher": "prettier src/interfaces/generated-types.tsx --write",
     "pre-commit": "git-branch-is -q main && yarn fix && yarn test || echo No hooks needed on pre-commit for this branch  ",
     "pre-push": "git-branch-is -q main && npm run lint && npm run test || echo No hooks needed on pre-push for this branch ",
     "version": "standard-version"
