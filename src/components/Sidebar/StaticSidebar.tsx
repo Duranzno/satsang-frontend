@@ -11,7 +11,7 @@ import RoomIcon from "@material-ui/icons/Room"
 import VideocamIcon from "@material-ui/icons/Videocam"
 import Grid from "@material-ui/core/Grid"
 import { useStyles } from "./StaticSidebar.styles"
-import Link from 'next/link'
+import Link from "next/link"
 import { Avatar, ButtonBase } from "@material-ui/core"
 
 /**
@@ -28,7 +28,7 @@ const StaticSidebarIcon: React.FC<{ className: string }> = ({ children, classNam
 const Logo: React.FC<{ onClick: Function }> = ({ onClick }) => {
   const classes = useStyles()
   return (
-    <ButtonBase className={classes.logo} onClick={() => onClick()} >
+    <ButtonBase className={classes.logo} onClick={() => onClick()}>
       <Avatar src="/logo-transparent.png" />
     </ButtonBase>
   )
@@ -66,20 +66,22 @@ const StaticSidebar: React.FC = ({ children }) => {
           <Grid className={classes.shameFlex} item xs={3}>
             <List className={classes.list}>
               <StaticSidebarIcon className={classes.listItem}>
-                <Logo onClick={() => { handleDrawerOpen() }} />
+                <Logo
+                  onClick={() => {
+                    handleDrawerOpen()
+                  }}
+                />
               </StaticSidebarIcon>
-              {navbar
-                .map(({ href, icon: c, name }) =>
-                  <StaticSidebarIcon className={classes.listItem} key={name}>
-                    <Link href={href} >{c}</Link>
-                  </StaticSidebarIcon>
-                )}
+              {navbar.map(({ href, icon: c, name }) => (
+                <StaticSidebarIcon className={classes.listItem} key={name}>
+                  <Link href={href}>{c}</Link>
+                </StaticSidebarIcon>
+              ))}
             </List>
           </Grid>
           {open && children}
         </Grid>
       </Drawer>
-
     </div>
   )
 }

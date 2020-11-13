@@ -19,16 +19,16 @@ const useStyles = makeStyles({
     marginBottom: 12,
   },
   textContainer: {
-    display: 'flex',
+    display: "flex",
     flexDirection: "row",
-    justifyItems: "space-between"
+    justifyItems: "space-between",
   },
   data: {
-    paddingLeft: 6
-  }
+    paddingLeft: 6,
+  },
 })
 interface Props {
-  text: string,
+  text: string
   onClick: Function
 }
 
