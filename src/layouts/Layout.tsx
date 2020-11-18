@@ -8,15 +8,14 @@ interface LayoutProps extends BaseLayoutProps {
 const useStyles = makeStyles(() => {
   return createStyles({
     container: {
-      minHeight: '100vh',
-      display: 'flex',
+      minHeight: "100vh",
+      display: "flex",
       flexDirection: "column",
       justifyContent: "center",
       alignItems: "center",
-    }
-
+    },
   })
-});
+})
 const Layout: React.FC<LayoutProps> = ({ children, ...props }: LayoutProps) => {
   // const [open, setOpen] = React.useState(false)
   // const events = ["Meditation 1.0", "Meditation 2.0", "Meditation 3.0"]
@@ -34,4 +33,3 @@ const Layout: React.FC<LayoutProps> = ({ children, ...props }: LayoutProps) => {
 }
 
 export default Layout
-

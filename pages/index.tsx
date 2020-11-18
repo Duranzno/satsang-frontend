@@ -7,9 +7,7 @@ import Copyright from "../src/Copyright"
 import { useGetAllEvents } from "../generated-types"
 
 export default function Index() {
-  const { data: events } = useGetAllEvents({
-
-  })
+  const { data: events } = useGetAllEvents({})
   return (
     <Container maxWidth="sm">
       <Box my={4}>

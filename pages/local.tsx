@@ -1,4 +1,4 @@
-import { NextPage } from 'next'
+import { NextPage } from "next"
 /*
  * This will be the page that shows events near the user.
  * DEVELOP:
@@ -11,6 +11,5 @@ const Local: NextPage = () => {
     </div>
   )
 }
-
 
 export default Local

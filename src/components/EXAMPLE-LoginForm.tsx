@@ -8,9 +8,9 @@ import { Container, Typography, InputAdornment, Grid } from "@material-ui/core"
 import Chevron from "@material-ui/icons/ChevronRight"
 import Person from "@material-ui/icons/Person"
 import Lock from "@material-ui/icons/Lock"
-import { TextField } from 'mui-rff'
-import useStyles from './AuthForm.styles'
-import { strings } from 'app/constants'
+import { TextField } from "mui-rff"
+import useStyles from "./AuthForm.styles"
+import { strings } from "app/constants"
 type LoginFormProps = {
   onSuccess?: () => void
 }
@@ -28,14 +28,17 @@ export const LoginForm = (props: LoginFormProps) => {
         return { [FORM_ERROR]: "Sorry, those credentials are invalid" }
       } else {
         return {
-          [FORM_ERROR]: "Sorry, we had an unexpected error. Please try again. - " + error.toString(),
+          [FORM_ERROR]:
+            "Sorry, we had an unexpected error. Please try again. - " + error.toString(),
         }
       }
     }
   }
   return (
     <Container maxWidth="sm" className={classes.root}>
-      <Typography component="h2" variant="h2" className={classes.title}>{strings.auth.loginTitle}</Typography>
+      <Typography component="h2" variant="h2" className={classes.title}>
+        {strings.auth.loginTitle}
+      </Typography>
 
       <Form
         submitText="Sign In"
@@ -49,12 +52,11 @@ export const LoginForm = (props: LoginFormProps) => {
           fullWidth: true,
           size: "large",
           endIcon: <Chevron />,
-          className: classes.submit
+          className: classes.submit,
         }}
       >
-        <Grid container spacing={2} direction="column"  >
+        <Grid container spacing={2} direction="column">
           <Grid item>
-
             <TextField
               variant="outlined"
               name="email"
@@ -62,15 +64,16 @@ export const LoginForm = (props: LoginFormProps) => {
               placeholder={strings.auth.signupEmail}
               required
               InputProps={{
-                startAdornment: <InputAdornment position="start">
-                  <Person />
-                </InputAdornment>
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <Person />
+                  </InputAdornment>
+                ),
               }}
               fullWidth
             />
           </Grid>
           <Grid item>
-
             <TextField
               variant="outlined"
               name="password"
@@ -79,23 +82,22 @@ export const LoginForm = (props: LoginFormProps) => {
               type="password"
               fullWidth
               InputProps={{
-                startAdornment: <InputAdornment position="start">
-                  <Lock />
-                </InputAdornment>
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <Lock />
+                  </InputAdornment>
+                ),
               }}
               required
             />
           </Grid>
         </Grid>
-
       </Form>
 
       <div>
-
         {strings.auth.loginGoSignup1} <Link href="/signup">{strings.auth.loginGoSignup2}</Link>
       </div>
-
-    </Container >
+    </Container>
   )
 }
 
