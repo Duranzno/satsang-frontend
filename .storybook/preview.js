@@ -2,7 +2,7 @@ import "../src/styles/global.scss"
 import { addDecorator } from '@storybook/react';
 import { ThemeProvider } from '@material-ui/core/styles';
 
-import theme from '../src/styles/theme';
+import theme from '../src/interfaces/theme';
 
 
 //TODO: Implement MSW on Storybook
