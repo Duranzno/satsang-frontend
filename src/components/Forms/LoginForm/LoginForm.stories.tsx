@@ -1,10 +1,11 @@
 import { action } from "@storybook/addon-actions"
-import { BaseMeta } from "@storybook/addons"
 import { LoginForm } from "./LoginForm.component"
-const story: BaseMeta<typeof LoginForm> = {
+const story = {
   component: LoginForm,
-  title: "Form/Login",
+  title: "Form",
+  parameters: { actions: { argTypesRegex: "^on.*" } },
+  argTypes: { onSuccess: { action: "clicked" } },
 }
 
-export const Basic = () => <LoginForm onSubmit={action("clicked")} />
+export const Login = () => <LoginForm onSuccess={action("clicked")} />
 export default story
