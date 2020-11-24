@@ -1,5 +1,4 @@
 import "../src/styles/global.scss"
-import { addDecorator } from '@storybook/react';
 import { ThemeProvider } from '@material-ui/core/styles';
 
 import theme from '../src/interfaces/theme';
@@ -18,7 +17,13 @@ import theme from '../src/interfaces/theme';
 //     worker.start()
 // }
 
+// .storybook/preview.js
 
-addDecorator((story) => (
-    <ThemeProvider theme={theme}>{story()}</ThemeProvider>
-));
+
+export const decorators = [
+  (Story) => (
+    <ThemeProvider theme={theme}>
+      <Story />
+    </ThemeProvider>
+  ),
+];
