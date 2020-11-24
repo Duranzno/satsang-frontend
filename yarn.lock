@@ -12955,6 +12955,11 @@ react-is@^17.0.1:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-17.0.1.tgz#5b3531bd76a645a4c9fb6e693ed36419e3301339"
   integrity sha512-NAnt2iGDXohE5LI7uBnLnqvLQMtzhkiAOLXTmv+qnF9Ky7xAPcX8Up/xWIhxvLVGJvuLiNc4xQLtuqDRzb4fSA==
 
+react-jutsu@3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/react-jutsu/-/react-jutsu-3.0.1.tgz#85efc26df83e8ccb5a00ba90e7f942b5c0af147b"
+  integrity sha512-jLIvAc2iAE7rwyAwwdVGc9kpcIuB2LETieVwEU9NmdE4lIKrRH93bsBfHq5z09IoNuLTqpCKy6Sn4/Hysz9pyg==
+
 react-lifecycles-compat@^3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
@@ -13026,7 +13031,7 @@ react-transition-group@^4.0.0, react-transition-group@^4.4.0:
     loose-envify "^1.4.0"
     prop-types "^15.6.2"
 
-react@^16.12.0, react@^16.8.3:
+react@^16.12.0, react@^16.8.3, react@^16.9.0:
   version "16.14.0"
   resolved "https://registry.yarnpkg.com/react/-/react-16.14.0.tgz#94d776ddd0aaa37da3eda8fc5b6b18a4c9a3114d"
   integrity sha512-0X2CImDkJGApiAlcf0ODKIneSwBPhqJawOa5wCtKbu7ZECrmS26NvtSILynQ66cgkT/RJ4LidJOc3bUESwmU8g==
@@ -14303,6 +14308,13 @@ store2@^2.7.1:
   version "2.12.0"
   resolved "https://registry.yarnpkg.com/store2/-/store2-2.12.0.tgz#e1f1b7e1a59b6083b2596a8d067f6ee88fd4d3cf"
   integrity sha512-7t+/wpKLanLzSnQPX8WAcuLCCeuSHoWdQuh9SB3xD0kNOM38DNf+0Oa+wmvxmYueRzkmh6IcdKFtvTa+ecgPDw==
+
+storybook-external-links@0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/storybook-external-links/-/storybook-external-links-0.1.0.tgz#fbad50f2bbe5be5bc2fae69664c85a14d025d015"
+  integrity sha512-5v4S2+Y0ymn06TZTsTO02Gf5z2O5KgZpHqcYQ91euSfyd+YGbxIoib+VPlWb0mQsK6uFh0lTjlU7VA3kdUdp1A==
+  dependencies:
+    react "^16.9.0"
 
 stream-browserify@3.0.0:
   version "3.0.0"

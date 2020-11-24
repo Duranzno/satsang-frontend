@@ -42,6 +42,7 @@ const BaseLayout: React.FC<BaseLayoutProps> = ({ title, children }) => {
         {/* <meta name="theme-color" content="#ffffff"> */}
       </Head>
       <div className={classes.baseLayoutRoot}>{children}</div>
+      <script src='https://meet.jit.si/external_api.js'></script>
     </>
   )
 }

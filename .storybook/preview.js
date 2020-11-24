@@ -1,5 +1,8 @@
+import React, { Component } from 'react';
+
 import "../src/styles/global.scss"
 import { ThemeProvider } from '@material-ui/core/styles';
+import withExternalLinks from 'storybook-external-links'
 
 import theme from '../src/interfaces/theme';
 
@@ -20,10 +23,44 @@ import theme from '../src/interfaces/theme';
 // .storybook/preview.js
 
 
+class Script extends Component {
+  state = {
+    loaded: false,
+  };
+
+  componentWillMount() {
+    const head = document.querySelector('head');
+    const script = document.createElement('script');
+
+    script.async = true;
+    script.src = this.props.src;
+    script.onload = () => this.setState({
+      loaded: true,
+    });
+
+    head.appendChild(script);
+  }
+
+  render() {
+    return this.state.loaded ? this.props.children : null;
+  }
+}
+
+// const loadScriptDecorator = src => story => <Script src={src}>{story()}</Script>;
+
 export const decorators = [
-  (Story) => (
-    <ThemeProvider theme={theme}>
-      <Story />
-    </ThemeProvider>
-  ),
+  (Story) => {
+    return (
+      <ThemeProvider theme={theme}>
+        <Story />
+      </ThemeProvider>
+    )
+  },
+  (Story) => {
+    return (
+      <Script src={'https://meet.jit.si/external_api.js'}>
+        <Story />
+      </Script>
+    )
+  },
 ];
