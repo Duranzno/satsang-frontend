@@ -1,13 +1,13 @@
-import React from "react"
-import { Container, Typography, Grid } from "@material-ui/core"
+import React from 'react'
+import { Container, Typography, Grid } from '@material-ui/core'
 
-import useStyles from "../AuthForm.styles"
-import { strings } from "../../../constants"
-import Form from "../Form"
-import { SignupInput, SignupInputType } from "../validations"
-import { FORM_ERROR } from "final-form"
-import { TextField } from "mui-rff"
-import Link from "next/link"
+import useStyles from '../AuthForm.styles'
+import { strings } from '../../../constants'
+import Form from '../Form'
+import { SignupInput, SignupInputType } from '../validations'
+import { FORM_ERROR } from 'final-form'
+import { TextField } from 'mui-rff'
+import Link from 'next/link'
 
 interface Props {
   onSuccess?: Function
@@ -20,9 +20,9 @@ export const SignupForm: React.FC<Props> = (props) => {
       console.log(values)
       props.onSuccess?.()
     } catch (error) {
-      if (error.code === "P2002" && error.meta?.target?.includes("email")) {
+      if (error.code === 'P2002' && error.meta?.target?.includes('email')) {
         // This error comes from Prisma
-        return { email: "This email is already being used" }
+        return { email: 'This email is already being used' }
       } else {
         return { [FORM_ERROR]: error.toString() }
       }
@@ -40,13 +40,13 @@ export const SignupForm: React.FC<Props> = (props) => {
       <Form
         submitText={strings.auth.signupTitle}
         schema={SignupInput}
-        initialValues={{ email: "", password: "", name: "" }}
+        initialValues={{ email: '', password: '', name: '' }}
         className={classes.form}
         buttonProps={{
-          variant: "contained",
-          color: "primary",
+          variant: 'contained',
+          color: 'primary',
           fullWidth: true,
-          size: "large",
+          size: 'large',
           className: classes.submit,
         }}
         onSubmit={onSubmit}
@@ -85,7 +85,7 @@ export const SignupForm: React.FC<Props> = (props) => {
           </Grid>
         </Grid>
       </Form>
-      <div style={{ marginTop: "1rem" }}>
+      <div style={{ marginTop: '1rem' }}>
         <Link href="/login">Already have an account? </Link>
       </div>
     </Container>

@@ -1,18 +1,18 @@
-import React from "react"
-import clsx from "clsx"
-import Drawer from "@material-ui/core/Drawer"
-import List from "@material-ui/core/List"
-import CssBaseline from "@material-ui/core/CssBaseline"
-import ListItem from "@material-ui/core/ListItem"
-import ListItemIcon from "@material-ui/core/ListItemIcon"
-import HomeIcon from "@material-ui/icons/Home"
-import LocalOfferIcon from "@material-ui/icons/LocalOffer"
-import RoomIcon from "@material-ui/icons/Room"
-import VideocamIcon from "@material-ui/icons/Videocam"
-import Grid from "@material-ui/core/Grid"
-import { useStyles } from "./StaticSidebar.styles"
-import Link from "next/link"
-import { Avatar, ButtonBase } from "@material-ui/core"
+import React from 'react'
+import clsx from 'clsx'
+import Drawer from '@material-ui/core/Drawer'
+import List from '@material-ui/core/List'
+import CssBaseline from '@material-ui/core/CssBaseline'
+import ListItem from '@material-ui/core/ListItem'
+import ListItemIcon from '@material-ui/core/ListItemIcon'
+import HomeIcon from '@material-ui/icons/Home'
+import LocalOfferIcon from '@material-ui/icons/LocalOffer'
+import RoomIcon from '@material-ui/icons/Room'
+import VideocamIcon from '@material-ui/icons/Videocam'
+import Grid from '@material-ui/core/Grid'
+import { useStyles } from './StaticSidebar.styles'
+import Link from 'next/link'
+import { Avatar, ButtonBase } from '@material-ui/core'
 
 /**
  * This is the Sidebar that will show:
@@ -41,10 +41,10 @@ export const StaticSidebar: React.FC = ({ children }) => {
     setOpen(!open)
   }
   const navbar = [
-    { name: "Home", icon: <HomeIcon fontSize="large" />, href: "/events" },
-    { name: "Categories", icon: <LocalOfferIcon fontSize="large" />, href: "/categories" },
-    { name: "Local Events", icon: <RoomIcon fontSize="large" />, href: "/local" },
-    { name: "Room", icon: <VideocamIcon fontSize="large" />, href: "/" },
+    { name: 'Home', icon: <HomeIcon fontSize="large" />, href: '/events' },
+    { name: 'Categories', icon: <LocalOfferIcon fontSize="large" />, href: '/categories' },
+    { name: 'Local Events', icon: <RoomIcon fontSize="large" />, href: '/local' },
+    { name: 'Room', icon: <VideocamIcon fontSize="large" />, href: '/' },
   ]
   return (
     <div className={classes.root}>

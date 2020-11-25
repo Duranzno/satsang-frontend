@@ -17,7 +17,7 @@
     "lint": "eslint --ignore-path .gitignore --ext .js,.ts,.tsx .",
     "test": "run-s build test:*",
     "test:lint": "eslint src --ext .ts --ext .tsx",
-    "test:prettier": "prettier \"{src,pages,test}/**/*.ts[x]\" -l ",
+    "test:prettier": "prettier \"{src,pages,test}/**/*.ts[x]\" -l --write",
     "test:spelling": "cspell \"{README.md,.github/*.md,{src,pages}/**/*.ts[x]}\"",
     "test:storybook": "npm run build-storybook",
     "test:unit": "jest",
@@ -111,6 +111,7 @@
   },
   "prettier": {
     "semi": false,
+    "singleQuote": true,
     "tabWidth": 2,
     "printWidth": 100
   },

@@ -1,16 +1,16 @@
-import React from "react"
-import { Container, Typography, InputAdornment, Grid } from "@material-ui/core"
+import React from 'react'
+import { Container, Typography, InputAdornment, Grid } from '@material-ui/core'
 
-import useStyles from "../AuthForm.styles"
-import { strings } from "../../../constants"
-import Form from "../Form"
-import { LoginInput, LoginInputType } from "../validations"
-import { FORM_ERROR } from "final-form"
-import ChevronRight from "@material-ui/icons/ChevronRight"
-import Person from "@material-ui/icons/Person"
-import Lock from "@material-ui/icons/Lock"
-import { TextField } from "mui-rff"
-import Link from "next/link"
+import useStyles from '../AuthForm.styles'
+import { strings } from '../../../constants'
+import Form from '../Form'
+import { LoginInput, LoginInputType } from '../validations'
+import { FORM_ERROR } from 'final-form'
+import ChevronRight from '@material-ui/icons/ChevronRight'
+import Person from '@material-ui/icons/Person'
+import Lock from '@material-ui/icons/Lock'
+import { TextField } from 'mui-rff'
+import Link from 'next/link'
 
 interface Props {
   onSuccess?: Function
@@ -24,12 +24,12 @@ export const LoginForm: React.FC<Props> = (props) => {
       console.log(await Promise.resolve(values))
       props.onSuccess?.()
     } catch (error) {
-      if (error.name === "AuthenticationError") {
-        return { [FORM_ERROR]: "Sorry, those credentials are invalid" }
+      if (error.name === 'AuthenticationError') {
+        return { [FORM_ERROR]: 'Sorry, those credentials are invalid' }
       } else {
         return {
           [FORM_ERROR]:
-            "Sorry, we had an unexpected error. Please try again. - " + error.toString(),
+            'Sorry, we had an unexpected error. Please try again. - ' + error.toString(),
         }
       }
     }
@@ -43,14 +43,14 @@ export const LoginForm: React.FC<Props> = (props) => {
       <Form
         submitText={strings.auth.loginTitle}
         schema={LoginInput}
-        initialValues={{ email: "", password: "" }}
+        initialValues={{ email: '', password: '' }}
         onSubmit={onSubmit}
         className={classes.form}
         buttonProps={{
-          variant: "contained",
-          color: "secondary",
+          variant: 'contained',
+          color: 'secondary',
           fullWidth: true,
-          size: "large",
+          size: 'large',
           endIcon: <ChevronRight />,
           className: classes.submit,
         }}

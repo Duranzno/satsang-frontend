@@ -1,13 +1,13 @@
-import { Form, FORM_ERROR } from "../Form"
-import DateFnsUtils from "@date-io/date-fns"
-import useStyles from "./EventForm.styles"
-import { TextField, KeyboardDatePicker, KeyboardTimePicker, Select, Switches } from "mui-rff"
-import { Container, Typography, Grid } from "@material-ui/core"
-import { Save } from "@material-ui/icons"
-import { EventInput, EventInputDefault, EventInputType } from "./validations"
-import { getDateTime } from "../../../utils"
-import { durationData, strings } from "../../../constants"
-import { Suspense } from "react"
+import { Form, FORM_ERROR } from '../Form'
+import DateFnsUtils from '@date-io/date-fns'
+import useStyles from './EventForm.styles'
+import { TextField, KeyboardDatePicker, KeyboardTimePicker, Select, Switches } from 'mui-rff'
+import { Container, Typography, Grid } from '@material-ui/core'
+import { Save } from '@material-ui/icons'
+import { EventInput, EventInputDefault, EventInputType } from './validations'
+import { getDateTime } from '../../../utils'
+import { durationData, strings } from '../../../constants'
+import { Suspense } from 'react'
 type EventFormProps = {
   onSubmit: (event: object) => void
 }
@@ -21,12 +21,12 @@ export const EventForm: React.FC<EventFormProps> = (props) => {
       const datetime = getDateTime(date, time)
       props.onSubmit({ ...event, datetime })
     } catch (error) {
-      if (error.name === "AuthenticationError") {
-        return { [FORM_ERROR]: "Sorry, those credentials are invalid" }
+      if (error.name === 'AuthenticationError') {
+        return { [FORM_ERROR]: 'Sorry, those credentials are invalid' }
       } else {
         return {
           [FORM_ERROR]:
-            "Sorry, we had an unexpected error. Please try again. - " + error.toString(),
+            'Sorry, we had an unexpected error. Please try again. - ' + error.toString(),
         }
       }
     }
@@ -67,7 +67,7 @@ export const EventForm: React.FC<EventFormProps> = (props) => {
       id="date-picker-inline"
       disablePast
       KeyboardButtonProps={{
-        "aria-label": strings.event.date,
+        'aria-label': strings.event.date,
       }}
     />,
     <KeyboardTimePicker
@@ -77,11 +77,11 @@ export const EventForm: React.FC<EventFormProps> = (props) => {
       label={strings.event.time}
       dateFunsUtils={DateFnsUtils}
       KeyboardButtonProps={{
-        "aria-label": strings.event.time,
+        'aria-label': strings.event.time,
       }}
     />,
     <Select name="duration" data={durationData} label={strings.event.duration} />,
-    <Switches label={strings.event.online} name="online" data={{ label: "online", value: true }} />,
+    <Switches label={strings.event.online} name="online" data={{ label: 'online', value: true }} />,
   ]
   return (
     <Suspense fallback={<div>Loading...</div>}>
@@ -97,10 +97,10 @@ export const EventForm: React.FC<EventFormProps> = (props) => {
           onSubmit={onSubmit}
           className={classes.form}
           buttonProps={{
-            variant: "contained",
-            color: "secondary",
+            variant: 'contained',
+            color: 'secondary',
             fullWidth: true,
-            size: "large",
+            size: 'large',
             endIcon: <Save />,
             className: classes.submit,
           }}

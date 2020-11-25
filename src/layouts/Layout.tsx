@@ -1,6 +1,6 @@
-import React, { ReactNode } from "react"
-import BaseLayout, { BaseLayoutProps } from "./BaseLayout"
-import { createStyles, makeStyles } from "@material-ui/core"
+import React, { ReactNode } from 'react'
+import BaseLayout, { BaseLayoutProps } from './BaseLayout'
+import { createStyles, makeStyles } from '@material-ui/core'
 interface LayoutProps extends BaseLayoutProps {
   children: ReactNode
 }
@@ -8,11 +8,11 @@ interface LayoutProps extends BaseLayoutProps {
 const useStyles = makeStyles(() => {
   return createStyles({
     container: {
-      minHeight: "100vh",
-      display: "flex",
-      flexDirection: "column",
-      justifyContent: "center",
-      alignItems: "center",
+      minHeight: '100vh',
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center',
     },
   })
 })

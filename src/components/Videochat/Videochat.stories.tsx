@@ -1,7 +1,7 @@
-import { Videochat } from "./Videochat.component"
+import { Videochat } from './Videochat.component'
 const story = {
   component: Videochat,
-  title: "Videochat",
+  title: 'Videochat',
   decorators: [
     (Story: React.ComponentType) => (
       <div>

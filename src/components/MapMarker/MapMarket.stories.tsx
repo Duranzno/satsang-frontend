@@ -1,7 +1,7 @@
-import { storiesOf } from "@storybook/react"
-import { MapMarker } from "./MapMarker.component"
+import { storiesOf } from '@storybook/react'
+import { MapMarker } from './MapMarker.component'
 
-storiesOf("MapMarker", module).add("with text", () => {
+storiesOf('MapMarker', module).add('with text', () => {
   return (
     <MapMarker
       onClick={(c) => console.log(c)}

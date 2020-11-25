@@ -1,16 +1,16 @@
 /// <reference types="googlemaps" />
-import React from "react"
+import React from 'react'
 // import {
 //   withGoogleMap,
 //   withScriptjs,
 //   GoogleMap,
 //   Marker,
 // } from 'react-google-maps';
-import { LatLng } from "../../interfaces"
-import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api"
+import { LatLng } from '../../interfaces'
+import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api'
 const containerStyle = {
-  width: "400px",
-  height: "400px",
+  width: '400px',
+  height: '400px',
 }
 
 const center = {

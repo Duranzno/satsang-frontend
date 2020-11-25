@@ -1,10 +1,11 @@
-import React from "react"
-import Card from "@material-ui/core/Card"
-import CardContent from "@material-ui/core/CardContent"
-import Typography from "@material-ui/core/Typography"
-import { ListItem } from "@material-ui/core"
-import { CalendarTodayOutlined, RoomOutlined } from "@material-ui/icons"
-import { useStyles } from "./TimelineEventCard.styles"
+import React from 'react'
+import Card from '@material-ui/core/Card'
+import CardContent from '@material-ui/core/CardContent'
+import Typography from '@material-ui/core/Typography'
+import { ListItem } from '@material-ui/core'
+import CalendarTodayOutlined from '@material-ui/icons/CalendarTodayOutlined'
+import RoomOutlined from '@material-ui/icons/RoomOutlined'
+import { useStyles } from './TimelineEventCard.styles'
 interface Props {
   text: string
   onClick: Function

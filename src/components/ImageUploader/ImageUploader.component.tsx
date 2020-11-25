@@ -1,6 +1,6 @@
-import { InputLabel } from "@material-ui/core"
-import React, { useCallback } from "react"
-import { useDropzone } from "react-dropzone"
+import { InputLabel } from '@material-ui/core'
+import React, { useCallback } from 'react'
+import { useDropzone } from 'react-dropzone'
 interface Props {
   label?: string
   uploadFile: (file: File) => void
@@ -25,5 +25,5 @@ export const ImageUploader: React.FC<Props> = ({ label, uploadFile }) => {
   )
 }
 ImageUploader.defaultProps = {
-  label: "Label",
+  label: 'Label',
 }
