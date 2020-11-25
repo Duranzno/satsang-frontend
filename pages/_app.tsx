@@ -4,9 +4,7 @@ import { ThemeProvider } from "@material-ui/core/styles"
 import CssBaseline from "@material-ui/core/CssBaseline"
 import { AppProps } from "next/dist/next-server/lib/router/router"
 import theme from "../src/interfaces/theme"
-import StaticSidebar from "../src/components/Sidebar/StaticSidebar"
-import TimelineSidebar from "../src/components/Sidebar/TimelineSidebar"
-import NewEventSidebar from "../src/components/Sidebar/NewEventSidebar"
+import { StaticSidebar, TimelineSidebar, NewEventSidebar } from "../src/components/Sidebar"
 import { RestfulProvider } from "restful-react"
 
 if (process.env.NODE_ENV !== "production") {

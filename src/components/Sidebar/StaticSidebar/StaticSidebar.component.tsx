@@ -33,7 +33,7 @@ const Logo: React.FC<{ onClick: Function }> = ({ onClick }) => {
     </ButtonBase>
   )
 }
-const StaticSidebar: React.FC = ({ children }) => {
+export const StaticSidebar: React.FC = ({ children }) => {
   const classes = useStyles()
   const [open, setOpen] = React.useState(false)
 
@@ -85,4 +85,3 @@ const StaticSidebar: React.FC = ({ children }) => {
     </div>
   )
 }
-export default StaticSidebar

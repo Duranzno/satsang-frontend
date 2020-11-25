@@ -6,7 +6,7 @@ interface Props {
   uploadFile: (file: File) => void
 }
 
-const ImageUploader: React.FC<Props> = ({ label, uploadFile }) => {
+export const ImageUploader: React.FC<Props> = ({ label, uploadFile }) => {
   const onDrop = useCallback(
     (acceptedFiles) => {
       uploadFile(acceptedFiles[0])
@@ -27,4 +27,3 @@ const ImageUploader: React.FC<Props> = ({ label, uploadFile }) => {
 ImageUploader.defaultProps = {
   label: "Label",
 }
-export default ImageUploader

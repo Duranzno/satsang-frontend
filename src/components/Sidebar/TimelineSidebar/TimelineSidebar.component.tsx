@@ -1,5 +1,5 @@
 import React from "react"
-import TimelineEventCard from "../Event/TimelineEventCard"
+import { TimelineEventCard } from "../TimelineEventCard/TimelineEventCard.component"
 import { Fab, Grid, makeStyles, Typography } from "@material-ui/core"
 import AddIcon from "@material-ui/icons/Add"
 /**
@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
     alignSelf: "end",
   },
 }))
-const TimelineSidebar: React.FC<Props> = ({ events, openNewEvent }) => {
+export const TimelineSidebar: React.FC<Props> = ({ events, openNewEvent }) => {
   const classes = useStyles()
 
   const goToConference = function () {
@@ -61,5 +61,3 @@ const TimelineSidebar: React.FC<Props> = ({ events, openNewEvent }) => {
     </Grid>
   )
 }
-
-export default TimelineSidebar

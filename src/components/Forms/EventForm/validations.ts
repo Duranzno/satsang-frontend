@@ -20,3 +20,13 @@ export const EventInputDefault: EventInputType = ({
   duration: EventDurationStep,
   online: true,
 })
+// const newEventValues = {
+//   name: "Session Name",
+//   title: "Session Title",
+//   description: "Description",
+//   datetime: new Date(),
+//   duration: "30",
+//   online: true,
+//   location: "LA",
+//   category: "Mindfulness",
+// }
