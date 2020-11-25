@@ -1,4 +1,5 @@
 import { colors, createMuiTheme } from "@material-ui/core"
+import { grey } from "@material-ui/core/colors"
 
 export const theme = createMuiTheme({
   palette: {
@@ -7,7 +8,10 @@ export const theme = createMuiTheme({
       main: "#FFBD12",
       "100": "#FFD465"
     },
-
+    text: {
+      secondary: "#FFF",
+      hint: grey[500]
+    },
     secondary: {
       main: "#18191F",
     },
@@ -18,7 +22,14 @@ export const theme = createMuiTheme({
       default: "#fff",
     },
   },
+  spacing: factor => `${0.25 * factor}rem`,
   overrides: {
+    MuiPaper: {
+      rounded: {
+        borderRadius: 16,
+        boxShadow: "0px 4px 0px #18191F"
+      }
+    },
     MuiDrawer: {
       paperAnchorRight: {
         borderLeft: "2px solid #000000",

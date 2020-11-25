@@ -7,5 +7,15 @@ const story = {
   argTypes: { onSuccess: { action: 'clicked' } },
 }
 
-export const SimpleEventCard = () => <SimpleEventCardBase onClick={action('clicked')} />
+export const SimpleEventCard = () => (
+  <SimpleEventCardBase
+    onClick={action('clicked')}
+    event={{
+      title: 'Romantic dinner night',
+      datetime: `${new Date()}`,
+      photoUrls: ['/mock/event.png'],
+      duration: 15,
+    }}
+  />
+)
 export default story

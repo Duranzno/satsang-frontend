@@ -1,4 +1,4 @@
-import { CardActionArea, makeStyles } from '@material-ui/core'
+import { CardActionArea, makeStyles, Theme } from '@material-ui/core'
 import React from 'react'
 import { Category } from '../../interfaces/generated-types'
 
@@ -23,15 +23,20 @@ export const CategoryCard: React.FC<Props> = ({
   const { name } = category
   const onClick = () => propOnClick(category)
   return (
-    <Card>
-      <CardActionArea className={classes.root} onClick={onClick}>
+    <Card raised className={classes.root}>
+      <CardActionArea className={classes.button} onClick={onClick}>
         <CardContent>
           {isFavorite && (
-            <Typography className={classes.popular} color="textSecondary" variant="h6" gutterBottom>
+            <Typography
+              align="center"
+              className={classes.popular}
+              color="textSecondary"
+              variant="h6"
+            >
               Popular
             </Typography>
           )}
-          <Typography className={classes.title} color="textSecondary" variant="h5" gutterBottom>
+          <Typography align="center" className={classes.title} color="textSecondary" variant="h5">
             {name}
           </Typography>
         </CardContent>
@@ -43,19 +48,25 @@ CategoryCard.defaultProps = {
   isFavorite: false,
   color: '#F95A2C',
 }
-const useStyles = makeStyles<unknown, { color: string }>(() => ({
+const useStyles = makeStyles<Theme, { color: string }>((theme) => ({
   root: ({ color: backgroundColor }) => ({
-    minWidth: 275,
-    minHeight: 150,
+    maxWidth: theme.spacing(55),
+    maxHeight: theme.spacing(25),
+    padding: theme.spacing(5),
     backgroundColor,
   }),
-  title: {
-    fontSize: 20,
+  button: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
   },
+
   popular: {
-    fontSize: 14,
+    fontSize: 24,
+    fontWeight: 500,
   },
-  pos: {
-    marginBottom: 12,
+  title: {
+    fontSize: 40,
+    fontWeight: 800,
   },
 }))

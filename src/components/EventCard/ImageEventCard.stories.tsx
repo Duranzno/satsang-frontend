@@ -10,7 +10,12 @@ const story = {
 export const ImageEventCard = () => (
   <ImageEventCardBase
     onClick={action('clicked')}
-    event={{ title: 'DJ Night', datetime: `${new Date()}`, photoUrls: [], duration: 15 }}
+    event={{
+      title: 'DJ Night',
+      datetime: `${new Date()}`,
+      photoUrls: ['/mock/event.png'],
+      duration: 15,
+    }}
   />
 )
 export default story

@@ -8,6 +8,10 @@ const story = {
 }
 
 export const CategoryCard = () => (
-  <CategoryCardBase onClick={action('clicked')} category={{ id: 1, name: 'Meditation' }} />
+  <CategoryCardBase
+    isFavorite
+    onClick={action('clicked')}
+    category={{ id: 1, name: 'Meditation' }}
+  />
 )
 export default story
