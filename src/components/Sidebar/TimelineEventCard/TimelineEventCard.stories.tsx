@@ -1,7 +1,7 @@
 import { TimelineEventCard } from './TimelineEventCard.component'
 const story = {
   component: TimelineEventCard,
-  title: 'Sidebar',
+  title: 'Sidebar/TimelineEventCard',
   parameters: { actions: { argTypesRegex: '^on.*' } },
   argTypes: { onSuccess: { action: 'clicked' } },
 }

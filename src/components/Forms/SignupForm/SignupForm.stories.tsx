@@ -2,7 +2,7 @@ import { action } from '@storybook/addon-actions'
 import { SignupForm } from './SignupForm.component'
 const story = {
   component: SignupForm,
-  title: 'Form',
+  title: 'Form/Signup',
   parameters: { actions: { argTypesRegex: '^on.*' } },
   argTypes: { onSuccess: { action: 'clicked' } },
 }

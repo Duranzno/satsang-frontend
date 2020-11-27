@@ -2,7 +2,7 @@ import { action } from '@storybook/addon-actions'
 import { ImageEventCard as ImageEventCardBase } from './ImageEventCard.component'
 const story = {
   component: ImageEventCardBase,
-  title: 'Cards',
+  title: 'Cards/ImageEvent',
   parameters: { actions: { argTypesRegex: '^on.*' } },
   argTypes: { onSuccess: { action: 'clicked' } },
 }

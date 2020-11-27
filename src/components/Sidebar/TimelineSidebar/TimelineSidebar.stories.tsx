@@ -2,7 +2,7 @@ import { action } from '@storybook/addon-actions'
 import { TimelineSidebar } from './TimelineSidebar.component'
 const story = {
   component: TimelineSidebar,
-  title: 'Sidebar',
+  title: 'Sidebar/Timeline',
   parameters: { actions: { argTypesRegex: '^on.*' } },
   argTypes: { onSuccess: { action: 'clicked' } },
 }

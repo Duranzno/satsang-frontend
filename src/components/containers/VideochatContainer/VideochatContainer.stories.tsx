@@ -1,7 +1,7 @@
 import { VideochatContainer as VideochatContainerBase } from './VideochatContainer.component'
 const story = {
   component: VideochatContainerBase,
-  title: 'Containers',
+  title: 'Containers/Videochat',
   parameters: { actions: { argTypesRegex: '^on.*' } },
   argTypes: { onSuccess: { action: 'clicked' } },
 }

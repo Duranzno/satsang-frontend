@@ -1,7 +1,7 @@
 import { CategoryContainer as CategoryContainerBase } from './CategoryContainer.component'
 const story = {
   component: CategoryContainerBase,
-  title: 'Containers',
+  title: 'Containers/Category',
   parameters: { actions: { argTypesRegex: '^on.*' } },
   argTypes: { onSuccess: { action: 'clicked' } },
 }

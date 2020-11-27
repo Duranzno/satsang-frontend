@@ -2648,6 +2648,11 @@
   resolved "https://registry.yarnpkg.com/@types/braces/-/braces-3.0.0.tgz#7da1c0d44ff1c7eb660a36ec078ea61ba7eb42cb"
   integrity sha512-TbH79tcyi9FHwbyboOKeRachRq63mSuWYXOflsNO9ZyE5ClQ/JaozNKl+aWUq87qPNsXasXxi2AbgfwIJ+8GQw==
 
+"@types/chance@1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@types/chance/-/chance-1.1.0.tgz#7d8e6bd0506344d94c042f692d59d20f8eb7d66d"
+  integrity sha512-j/9aaLU6JaaN2iFiSZgvD+G0nju1Fi2/f2WM+WwS+8+cpTdzFhXFH3+SHZgfjgum6wNW80sfcawUx+Rx7tH26w==
+
 "@types/cookie@^0.4.0":
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/@types/cookie/-/cookie-0.4.0.tgz#14f854c0f93d326e39da6e3b6f34f7d37513d108"
@@ -2933,6 +2938,11 @@
   integrity sha512-7npvPKV+jINLu1SpSYVWG8KvyJBhBa8tmzMMdDoVc2pWUYHN8KIXlPJhjJ4LT97c4dXJA2SHL/q6ADbDriZN+Q==
   dependencies:
     source-map "^0.6.1"
+
+"@types/use-position@0.0.0":
+  version "0.0.0"
+  resolved "https://registry.yarnpkg.com/@types/use-position/-/use-position-0.0.0.tgz#d9e11b04201a67ff2b7f1ba1051a0b9bab39d9d2"
+  integrity sha512-mhpUxCnmEtsH6y+FY5um4O0kpTnoeNQd5BXboBBRiBs5a1B3UF4lgci94iNmqdxudzO2T2C8HHdiZZymxjZB7w==
 
 "@types/webpack-env@^1.15.2":
   version "1.15.3"
@@ -4762,6 +4772,11 @@ chalk@^3.0.0:
   dependencies:
     ansi-styles "^4.1.0"
     supports-color "^7.1.0"
+
+chance@1.1.7:
+  version "1.1.7"
+  resolved "https://registry.yarnpkg.com/chance/-/chance-1.1.7.tgz#e99dde5ac16681af787b5ba94c8277c090d6cfe8"
+  integrity sha512-bua/2cZEfzS6qPm0vi3JEvGNbriDLcMj9lKxCQOjUcCJRcyjA7umP0zZm6bKWWlBN04vA0L99QGH/CZQawr0eg==
 
 char-regex@^1.0.2:
   version "1.0.2"
@@ -15402,6 +15417,11 @@ use-latest@^1.0.0:
   integrity sha512-d2TEuG6nSLKQLAfW3By8mKr8HurOlTkul0sOpxbClIv4SQ4iOd7BYr7VIzdbktUCnv7dua/60xzd8igMU6jmyw==
   dependencies:
     use-isomorphic-layout-effect "^1.0.0"
+
+use-position@0.0.8:
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/use-position/-/use-position-0.0.8.tgz#631243c588e027152e5defe7c3996f4d03e0bb0f"
+  integrity sha512-t7gLuwE/rL30Elxpnjb6D1RnfNFNrf5DWOEXQ5rBKWUvy/QlbI+i4Mlv7GQi1QXt2gkH5YzaGHgx1S16i6Pjsw==
 
 use-subscription@1.5.0:
   version "1.5.0"

@@ -1,7 +1,7 @@
 import { LocalContainer as LocalContainerBase } from './LocalContainer.component'
 const story = {
   component: LocalContainerBase,
-  title: 'Containers',
+  title: 'Containers/Local Map',
   parameters: { actions: { argTypesRegex: '^on.*' } },
   argTypes: { onSuccess: { action: 'clicked' } },
 }

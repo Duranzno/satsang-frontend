@@ -1,7 +1,7 @@
 import { NewEventSidebar } from './NewEventSidebar.component'
 const story = {
   component: NewEventSidebar,
-  title: 'Sidebar',
+  title: 'Sidebar/New Event',
   parameters: { actions: { argTypesRegex: '^on.*' } },
   argTypes: { onSuccess: { action: 'clicked' } },
 }

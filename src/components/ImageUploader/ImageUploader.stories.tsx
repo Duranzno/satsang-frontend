@@ -2,7 +2,7 @@ import { action } from '@storybook/addon-actions'
 import { ImageUploader as ImageUploaderBase } from './ImageUploader.component'
 const story = {
   component: ImageUploaderBase,
-  title: 'Cards',
+  title: 'Cards/ImageUploader',
   parameters: { actions: { argTypesRegex: '^on.*' } },
   argTypes: { onSuccess: { action: 'clicked' } },
 }

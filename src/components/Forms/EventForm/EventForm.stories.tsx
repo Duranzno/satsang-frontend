@@ -2,7 +2,7 @@ import { action } from '@storybook/addon-actions'
 import { EventForm } from './EventForm.component'
 const story = {
   component: EventForm,
-  title: 'Form',
+  title: 'Form/Event',
   parameters: { actions: { argTypesRegex: '^on.*' } },
   argTypes: { onSuccess: { action: 'clicked' } },
 }
