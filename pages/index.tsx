@@ -6,6 +6,8 @@ import ProTip from "../src/ProTip"
 import Copyright from "../src/Copyright"
 
 export default function Index() {
+  // const { data: events } = useGetAllEvents({})
+
   return (
     <Container maxWidth="sm">
       <Box my={4}>
