@@ -57,8 +57,14 @@ const NewEventForm = ({ initialValues, onSubmit }: EventFormProps) => {
             initialValues={initialValues}
             render={({ handleSubmit, form, values }) => (
               <form onSubmit={handleSubmit}>
+                <br></br>
                 <div>
-                  <Field name="name" component={AdaptedTextField} type="text" />
+                  <Field name="online" component="select">
+                    <option value="true" selected>
+                      Online
+                    </option>
+                    <option value="false">In-Person</option>
+                  </Field>
                 </div>
                 <div>
                   <Field name="title" component={AdaptedTextField} type="text" />
@@ -72,21 +78,7 @@ const NewEventForm = ({ initialValues, onSubmit }: EventFormProps) => {
                 <div>
                   <Field name="duration" component={AdaptedTextField} type="number" />
                 </div>
-                <br></br>
-                <div>
-                  <Field name="online" component="select">
-                    <option value="true" selected>
-                      Online
-                    </option>
-                    <option value="false">In-Person</option>
-                  </Field>
-                </div>
-                {/* <TextField
-                label="Category"
-                name="category"
-                select
-                helperText="Please select a Category"
-              > */}
+
                 <br></br>
                 <Field name="category" component="select">
                   <option key="Mindfulness" value="Mindfulness">

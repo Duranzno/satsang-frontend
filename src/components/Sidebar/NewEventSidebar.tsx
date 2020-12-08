@@ -37,8 +37,22 @@ const NewEventSidebar: React.FC<Props> = ({ open, onClose }) => {
         <NewEventForm
           initialValues={newEventValues}
           onSubmit={async (_evt) => {
+            console.log(_evt)
             try {
               console.log("creating new event")
+              fetch('https://virtserver.swaggerhub.com/Duranzno/satsang/1.0.0/api/event',{
+                method: "POST",
+                headers: {
+                  'Content-Type': 'application/json',
+                  Accept: 'application/json'
+                },
+                body: JSON.stringify({_evt})
+              })
+                .then(response => response.json())
+                .then( event => {
+                  console.log(event)
+                })
+                .catch(error => console.log(error.message))
               // TODO: properly type this mutation...
               //   const event = await createEventMutation({
               //     data: {

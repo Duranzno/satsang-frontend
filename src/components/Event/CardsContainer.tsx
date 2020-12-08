@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import DetailedEventCard from './DetailedEventCard'
 import Grid from '@material-ui/core/Grid';
@@ -27,13 +27,25 @@ const CardsContainer: React.FC<any> = (props) => {
 
   const [categoryId, setCategoryId] = useState(0)
 
+  const [events, setEvents] = useState()
+  
+
+  useEffect(()=>{
+    fetch('https://virtserver.swaggerhub.com/Duranzno/satsang/1.0.0/api/event')
+      .then(response => {return response.json()})
+      .then(events => {
+        setEvents(events)
+      })
+      .catch(error => console.log(error.message))
+  }, [])
+
   const renderCards = () => {
     let filteredEvents;
     
     categoryId ? filteredEvents = props.events.filter(event => event.category === categoryId) : filteredEvents = props.events
 
     return (
-        props.events.map(( event: {
+        events.map(( event: {
             name: string;
             title: string;
             description: string;
@@ -90,7 +102,7 @@ const CardsContainer: React.FC<any> = (props) => {
           xs={12}
           spacing={3}
         >
-          {props.events ? renderCards() : "Loading" }
+          {events ? renderCards() : "Loading" }
         </Grid>
       </div>
     </main>
@@ -98,21 +110,6 @@ const CardsContainer: React.FC<any> = (props) => {
 }
 
 export default CardsContainer;
-
-const date = faker.date.future()
-const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
-
-const event = {
-    name: `${days[date.getDay()]}'s Meditation`,
-    title: `Satsang Meditation`,
-    description: `Session from the city of ${faker.address.city()}`,
-    datetime: date,
-    duration: Math.floor(Math.random() * (9 - 3) + 3),
-    online: Math.random() >= 0.5,
-    location: faker.address.city()
-    }
-
-
 
 let categories: Array<object> = [
   { name: "Mindfulness", id: 1 },
@@ -123,3 +120,29 @@ let categories: Array<object> = [
   { name: "Zen", id: 6 } ,
   { name: "Kundalini", id: 7 }
 ]
+
+// const date = faker.date.future()
+// const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+
+// const mockEvents = [
+//   {
+//   name: `${days[date.getDay()]}'s Meditation`,
+//   title: `Satsang Meditation`,
+//   description: `Session from the city of ${faker.address.city()}`,
+//   datetime: date,
+//   duration: Math.floor(Math.random() * (9 - 3) + 3),
+//   online: Math.random() >= 0.5,
+//   location: faker.address.city(),
+//   category: 'Mantra'
+//   },
+//   {
+//   name: `${days[date.getDay()+1]}'s Meditation`,
+//   title: `Satsang Meditation`,
+//   description: `Session from the city of ${faker.address.city()}`,
+//   datetime: date,
+//   duration: Math.floor(Math.random() * (9 - 3) + 3),
+//   online: Math.random() >= 0.5,
+//   location: faker.address.city(),
+//   category: "Zen"
+//   }
+// ]
