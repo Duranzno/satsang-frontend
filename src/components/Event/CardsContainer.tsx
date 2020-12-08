@@ -90,8 +90,7 @@ const CardsContainer: React.FC<any> = (props) => {
           xs={12}
           spacing={3}
         >
-
-          {renderCards()}
+          {props.events ? renderCards() : "Loading" }
         </Grid>
       </div>
     </main>

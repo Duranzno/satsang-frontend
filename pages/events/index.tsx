@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { NextPage } from "next"
 import CardsContainer from "../../src/components/Event/CardsContainer";
 import faker from "faker";
@@ -7,7 +7,17 @@ import faker from "faker";
 
 const EventsPage: NextPage = () => {
   // const events = ["event1", "event2", "event3"]
+  const [events, setEvents] = useState()
 
+  useEffect(()=>{
+    fetch('https://virtserver.swaggerhub.com/Duranzno/satsang/1.0.0/api/event')
+      .then(response => {return response.json()})
+      .then(events => {
+        console.log(events)
+        setEvents(events)
+      })
+      .catch(error => console.log(error.message))
+  }, [])
   return (
     <>
         {/* This button opens right sidebar */}
@@ -27,7 +37,7 @@ export default EventsPage
 const date = faker.date.future()
 const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 
-const events = [
+const mockEvents = [
   {
   name: `${days[date.getDay()]}'s Meditation`,
   title: `Satsang Meditation`,
