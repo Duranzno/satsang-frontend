@@ -6,13 +6,18 @@ import faker from "faker";
 
 
 const EventsPage: NextPage = () => {
-  const events = ["event1", "event2", "event3"]
+  // const events = ["event1", "event2", "event3"]
 
   return (
     <>
         {/* This button opens right sidebar */}
-        <CardsContainer events={events} />
-
+        <div className="top-grid">
+          <div className="top-flex">
+            <div className="width-div">
+              <CardsContainer events={events} />
+            </div>
+          </div>
+        </div>
     </>
   )
 }
@@ -30,15 +35,17 @@ const events = [
   datetime: date,
   duration: Math.floor(Math.random() * (9 - 3) + 3),
   online: Math.random() >= 0.5,
-  location: faker.address.city()
+  location: faker.address.city(),
+  category: 'Mantra'
   },
   {
-  name: `${days[date.getDay()]}'s Meditation`,
+  name: `${days[date.getDay()+1]}'s Meditation`,
   title: `Satsang Meditation`,
   description: `Session from the city of ${faker.address.city()}`,
   datetime: date,
   duration: Math.floor(Math.random() * (9 - 3) + 3),
   online: Math.random() >= 0.5,
-  location: faker.address.city()
+  location: faker.address.city(),
+  category: "Zen"
   }
 ]

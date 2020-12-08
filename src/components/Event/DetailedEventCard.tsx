@@ -27,6 +27,7 @@ interface Props {
 const useStyles = makeStyles({
   root: {
     maxWidth: 345,
+    borderRaduis: '100px'
   },
   media: {
     height: 140,
@@ -61,9 +62,11 @@ const DetailedEventCard: React.FC<Props> = (props: Props) => {
           <CardContent>
             <Typography gutterBottom variant="h5" component="h2">
               {props.event.name}
+              {console.log("hello")}
+
             </Typography>
             <Typography variant="body2" color="textSecondary" component="p">
-              {props.event.datetime.toString()}
+              {props.event.datetime ? props.event.datetime.toString() : null}
               <br />
               {props.event.duration} mins
           </Typography>

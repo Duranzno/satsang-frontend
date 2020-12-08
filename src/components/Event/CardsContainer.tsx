@@ -21,18 +21,16 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const ITEMS_PER_PAGE = 100;
-
 const CardsContainer: React.FC<any> = (props) => {
 
   const classes = useStyles()
 
+  const [categoryId, setCategoryId] = useState(0)
 
   const renderCards = () => {
-    
     let filteredEvents;
     
-    props.category ? filteredEvents = props.events.filter(event => event.category === props.category) : filteredEvents = props.events
+    categoryId ? filteredEvents = props.events.filter(event => event.category === categoryId) : filteredEvents = props.events
 
     return (
         props.events.map(( event: {
@@ -44,19 +42,19 @@ const CardsContainer: React.FC<any> = (props) => {
             online: Boolean;
             location: string;
           },
-          id: number ) => {
+          id: number ) => { return(
         <Grid
           item
           xs={3}
-        //   justify="center"
-        //   direction="row"
-        //   alignItems="flex-start"
+          justify="center"
+          direction="row"
+          alignItems="flex-start"
           key={id}
           >
 
 
           <DetailedEventCard event={event} id={id} />
-        </Grid>
+        </Grid>)
     }))
   }
 
@@ -79,7 +77,8 @@ const CardsContainer: React.FC<any> = (props) => {
     <main className={classes.content}>
       <div className={classes.toolbar} />
       <div style={{ width: "1100px" }}>
-        {/* <Button onClick={() => setCategoryId(0)}>All</Button> */}
+        <Button onClick={() => setCategoryId(0)}>All</Button>
+        {console.log(categoryId)}
         {renderCategories()}
         <br></br>
         <br></br>
@@ -92,31 +91,7 @@ const CardsContainer: React.FC<any> = (props) => {
           spacing={3}
         >
 
-          {/* {renderCards()} */}
-          {/* {props.events.map(( event: {
-            name: string;
-            title: string;
-            description: string;
-            datetime: Date;
-            duration: number;
-            online: Boolean;
-            location: string;
-          },
-          id: number ) => {
-        <Grid
-          item
-          xs={3}
-        //   justify="center"
-        //   direction="row"
-        //   alignItems="flex-start"
-          key={id}
-          >
-
-            {console.log(event)} */}
-
-          <DetailedEventCard event={event} id={1} />
-        {/* </Grid>
-          }) } */}
+          {renderCards()}
         </Grid>
       </div>
     </main>

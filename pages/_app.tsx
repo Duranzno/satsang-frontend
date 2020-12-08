@@ -7,6 +7,8 @@ import theme from "../src/styles/theme"
 import StaticSidebar from "../src/components/Sidebar/StaticSidebar"
 import TimelineSidebar from "../src/components/Sidebar/TimelineSidebar"
 import NewEventSidebar from "../src/components/Sidebar/NewEventSidebar"
+import "./app.css";
+
 
 if (process.env.NODE_ENV !== "production") {
   require("../mocks")
