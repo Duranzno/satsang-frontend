@@ -37,16 +37,26 @@ const NewEventSidebar: React.FC<Props> = ({ open, onClose }) => {
         <NewEventForm
           initialValues={newEventValues}
           onSubmit={async (_evt) => {
+            const real = "https://satsang-app.herokuapp.com/api/event"
+            const mock = "https://virtserver.swaggerhub.com/Duranzno/satsang/1.0.0"
+            const local = "http://localhost:3001/api/event"
             console.log(_evt)
             try {
               console.log("creating new event")
-              fetch('https://virtserver.swaggerhub.com/Duranzno/satsang/1.0.0/api/event',{
+              fetch(local,{
                 method: "POST",
                 headers: {
+                  'Access-Control-Allow-Origin':'*',
                   'Content-Type': 'application/json',
                   Accept: 'application/json'
                 },
-                body: JSON.stringify({_evt})
+                body: JSON.stringify({
+                  title: _evt.title, 
+                  online: _evt.online,
+                  description: _evt.description,
+                  datetime: _evt.datetime,
+                  duration: parseInt(_evt.duration)
+                })
               })
                 .then(response => response.json())
                 .then( event => {

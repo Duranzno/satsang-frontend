@@ -31,10 +31,14 @@ const CardsContainer: React.FC<any> = (props) => {
   
 
   useEffect(()=>{
-    fetch('https://virtserver.swaggerhub.com/Duranzno/satsang/1.0.0/api/event')
+    const real = "https://satsang-app.herokuapp.com/api/event"
+    const mock = "https://virtserver.swaggerhub.com/Duranzno/satsang/1.0.0"
+    const local = "http://localhost:3001/api/event"
+    fetch(local)
       .then(response => {return response.json()})
       .then(events => {
         setEvents(events)
+        console.log(events)
       })
       .catch(error => console.log(error.message))
   }, [])
