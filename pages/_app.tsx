@@ -14,6 +14,7 @@ if (process.env.NODE_ENV !== "production") {
   require("../mocks")
 }
 function MyApp({ Component, pageProps }: AppProps) {
+  
   React.useEffect(() => {
     // Remove the server-side injected CSS.
     const jssStyles = document.querySelector("#jss-server-side")
@@ -23,8 +24,11 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, [])
 
   const events = ["event1", "event2", "event3"]
+
   const [sidebarOpen, setSidebarOpen] = useState(false)
+
   const onClose = () => setSidebarOpen(false)
+
   return (
     <React.Fragment>
       <Head>

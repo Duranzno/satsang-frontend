@@ -4,6 +4,7 @@ import DetailedEventCard from './DetailedEventCard'
 import Grid from '@material-ui/core/Grid';
 import { Button } from '@material-ui/core';
 import faker from "faker";
+import { useGetAllEvents } from '../../interfaces/generated-types';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -21,27 +22,15 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
+const local = "http://localhost:3001/api/event"
+
 const CardsContainer: React.FC<any> = (props) => {
 
   const classes = useStyles()
 
   const [categoryId, setCategoryId] = useState(0)
-
-  const [events, setEvents] = useState()
   
-
-  useEffect(()=>{
-    const real = "https://satsang-app.herokuapp.com/api/event"
-    const mock = "https://virtserver.swaggerhub.com/Duranzno/satsang/1.0.0"
-    const local = "http://localhost:3001/api/event"
-    fetch(local)
-      .then(response => {return response.json()})
-      .then(events => {
-        setEvents(events)
-        console.log(events)
-      })
-      .catch(error => console.log(error.message))
-  }, [])
+  const { data: events } = useGetAllEvents({})
 
   const renderCards = () => {
     let filteredEvents;
@@ -49,16 +38,7 @@ const CardsContainer: React.FC<any> = (props) => {
     categoryId ? filteredEvents = props.events.filter(event => event.category === categoryId) : filteredEvents = props.events
 
     return (
-        events.map(( event: {
-            name: string;
-            title: string;
-            description: string;
-            datetime: Date;
-            duration: number;
-            online: Boolean;
-            location: string;
-          },
-          id: number ) => { return(
+        events.map(( event, id ) => { return(
         <Grid
           item
           xs={3}

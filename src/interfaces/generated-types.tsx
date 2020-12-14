@@ -78,7 +78,7 @@ export type GetAllEventsProps = Omit<GetProps<Event[], unknown, void, void>, "pa
  * Get All Events
  */
 export const GetAllEvents = (props: GetAllEventsProps) => (
-  <Get<Event[], unknown, void, void> path={`/api/event`} {...props} />
+  <Get<Event[], unknown, void, void> path={`http://localhost:3001/api/event`} {...props} />
 )
 
 export type UseGetAllEventsProps = Omit<UseGetProps<Event[], unknown, void, void>, "path">
@@ -89,7 +89,7 @@ export type UseGetAllEventsProps = Omit<UseGetProps<Event[], unknown, void, void
  * Get All Events
  */
 export const useGetAllEvents = (props: UseGetAllEventsProps) =>
-  useGet<Event[], unknown, void, void>(`/api/event`, props)
+  useGet<Event[], unknown, void, void>(`http://localhost:3001/api/event`, props)
 
 export type AddEventProps = Omit<
   MutateProps<Event, void, void, EventRequestBody, void>,
@@ -100,7 +100,7 @@ export type AddEventProps = Omit<
  * Add a new event to the store
  */
 export const AddEvent = (props: AddEventProps) => (
-  <Mutate<Event, void, void, EventRequestBody, void> verb="POST" path={`/api/event`} {...props} />
+  <Mutate<Event, void, void, EventRequestBody, void> verb="POST" path={`http://localhost:3001/api/event`} {...props} />
 )
 
 export type UseAddEventProps = Omit<
@@ -112,7 +112,7 @@ export type UseAddEventProps = Omit<
  * Add a new event to the store
  */
 export const useAddEvent = (props: UseAddEventProps) =>
-  useMutate<Event, void, void, EventRequestBody, void>("POST", `/api/event`, props)
+  useMutate<Event, void, void, EventRequestBody, void>("POST", `http://localhost:3001/api/event`, props)
 
 export interface GetEventByIdPathParams {
   /**
