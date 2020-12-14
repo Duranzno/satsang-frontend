@@ -1,22 +1,27 @@
 import React from 'react'
 import { createStyles, makeStyles } from '@material-ui/core'
-import Head from 'next/head';
+import Head from 'next/head'
 
 export interface BaseLayoutProps {
   title?: string
 }
-const useStyles = makeStyles(() => createStyles({
-  baseLayoutRoot: {
-    height: '100vh'
-  },
-}));
+const useStyles = makeStyles(() =>
+  createStyles({
+    baseLayoutRoot: {
+      height: '100vh',
+    },
+  })
+)
 const BaseLayout: React.FC<BaseLayoutProps> = ({ title, children }) => {
   const classes = useStyles()
   return (
     <>
       <Head>
-        <title>{title || "meditationApp"}</title>
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,700;1,200;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet"></link>
+        <title>{title || 'meditationApp'}</title>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,700;1,200;1,300;1,400;1,500;1,700&display=swap"
+          rel="stylesheet"
+        ></link>
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
         <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png" />
         <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png" />
@@ -36,9 +41,8 @@ const BaseLayout: React.FC<BaseLayoutProps> = ({ title, children }) => {
         {/* <meta name="msapplication-TileColor" content="#ffffff" /> */}
         {/* <meta name="theme-color" content="#ffffff"> */}
       </Head>
-      <div className={classes.baseLayoutRoot}>
-        {children}
-      </div>
+      <div className={classes.baseLayoutRoot}>{children}</div>
+      <script src="https://meet.jit.si/external_api.js"></script>
     </>
   )
 }

@@ -1,12 +1,7 @@
-import { NextPage } from "next"
+import { NextPage } from 'next'
 
 const Categories: NextPage = () => {
-  return (
-    <div>
-      categories
-    </div>
-  )
+  return <div>categories</div>
 }
-
 
 export default Categories

@@ -51,5 +51,7 @@
 // Home.getLayout = (page) => <Layout title="Home">{page}</Layout>
 
 // export default Home
-const a = () => { return <div></div> }
+const a = () => {
+  return <div></div>
+}
 export default a

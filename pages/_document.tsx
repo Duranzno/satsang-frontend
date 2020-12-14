@@ -1,6 +1,6 @@
-import React from "react"
-import Document, { Html, Head, Main, NextScript } from "next/document"
-import { ServerStyleSheets } from "@material-ui/core/styles"
+import React from 'react'
+import Document, { Html, Head, Main, NextScript } from 'next/document'
+import { ServerStyleSheets } from '@material-ui/core/styles'
 
 export default class MyDocument extends Document {
   render() {
@@ -8,7 +8,10 @@ export default class MyDocument extends Document {
       <Html lang="en">
         <Head>
           {/* PWA primary color */}
-          <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,700;1,200;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet"></link>
+          <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,700;1,200;1,300;1,400;1,500;1,700&display=swap"
+            rel="stylesheet"
+          ></link>
           <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
           <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png" />
           <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png" />

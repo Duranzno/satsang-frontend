@@ -1,6 +1,6 @@
-import React from "react"
-import NewEventForm from "./NewEventForm"
-import Drawer from "@material-ui/core/Drawer"
+import React from 'react'
+import Drawer from '@material-ui/core/Drawer'
+import { EventForm } from '../../Forms'
 // import createEvent from "app/events/mutations/createEvent"
 // import { useMutation, useRouter } from 'blitz';
 // import { useCurrentUser } from "app/hooks/useCurrentUser";
@@ -17,28 +17,17 @@ interface Props {
   onClose: Function
 }
 
-const NewEventSidebar: React.FC<Props> = ({ open, onClose }) => {
+export const NewEventSidebar: React.FC<Props> = ({ open, onClose }) => {
   // const [createEventMutation] = useMutation(createEvent);
   // const router = useRouter();
 
-  const newEventValues = {
-    name: "Session Name",
-    title: "Session Title",
-    description: "Description",
-    datetime: new Date(),
-    duration: "30",
-    online: true,
-    location: "LA",
-    category: "Mindfulness",
-  }
   return (
     <div>
       <Drawer anchor="right" open={open} onClose={() => onClose()}>
-        <NewEventForm
-          initialValues={newEventValues}
+        <EventForm
           onSubmit={async (_evt) => {
             try {
-              console.log("creating new event")
+              console.log('creating new event')
               // TODO: properly type this mutation...
               //   const event = await createEventMutation({
               //     data: {
@@ -55,7 +44,7 @@ const NewEventSidebar: React.FC<Props> = ({ open, onClose }) => {
               //   alert("Success!" + JSON.stringify(event))
               //   router.push("/events")
             } catch (error) {
-              alert("Error creating event " + JSON.stringify(error, null, 2))
+              alert('Error creating event ' + JSON.stringify(error, null, 2))
             }
           }}
         />
@@ -63,5 +52,3 @@ const NewEventSidebar: React.FC<Props> = ({ open, onClose }) => {
     </div>
   )
 }
-
-export default NewEventSidebar

@@ -21,5 +21,6 @@ export const strings = {
     duration: "Duration (mins)",
     online: "Is this an online event?",
   },
-  min: "min"
+  min: "min",
+  upload: "Upload Image"
 }

@@ -12,5 +12,4 @@ const Local: NextPage = () => {
   )
 }
 
-
 export default Local

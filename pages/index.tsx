@@ -1,15 +1,13 @@
-import Container from "@material-ui/core/Container"
-import Typography from "@material-ui/core/Typography"
-import Box from "@material-ui/core/Box"
+import Container from '@material-ui/core/Container'
+import Typography from '@material-ui/core/Typography'
+import Box from '@material-ui/core/Box'
 
-import ProTip from "../src/ProTip"
-import Copyright from "../src/Copyright"
-import { useGetAllEvents } from "../generated-types"
+import ProTip from '../src/ProTip'
+import Copyright from '../src/Copyright'
+import { useGetAllEvents } from '../src/interfaces/generated-types'
 
 export default function Index() {
-  const { data: events } = useGetAllEvents({
-
-  })
+  const { data: events } = useGetAllEvents({})
   return (
     <Container maxWidth="sm">
       <Box my={4}>

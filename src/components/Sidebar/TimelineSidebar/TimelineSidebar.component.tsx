@@ -1,7 +1,7 @@
-import React from "react"
-import TimelineEventCard from "../Event/TimelineEventCard"
-import { Fab, Grid, makeStyles, Typography } from "@material-ui/core"
-import AddIcon from "@material-ui/icons/Add"
+import React from 'react'
+import { TimelineEventCard } from '../TimelineEventCard/TimelineEventCard.component'
+import { Fab, Grid, makeStyles, Typography } from '@material-ui/core'
+import AddIcon from '@material-ui/icons/Add'
 /**
  * This is the EventCard that has no images and will be used on the event timeline and the map
  * DEVELOP:
@@ -13,27 +13,27 @@ interface Props {
 }
 const useStyles = makeStyles((theme) => ({
   root: {
-    paddingTop: theme.spacing(5) + "px !important",
-    paddingBottom: theme.spacing(5) + "px !important",
-    height: "100%",
+    paddingTop: theme.spacing(5) + 'px !important',
+    paddingBottom: theme.spacing(5) + 'px !important',
+    height: '100%',
     flex: 1,
   },
   title: {
     paddingTop: theme.spacing(5),
-    fontWeight: "bold",
+    fontWeight: 'bold',
   },
   events: {},
   fab: {
-    justifySelf: "end",
-    alignSelf: "end",
+    justifySelf: 'end',
+    alignSelf: 'end',
   },
 }))
-const TimelineSidebar: React.FC<Props> = ({ events, openNewEvent }) => {
+export const TimelineSidebar: React.FC<Props> = ({ events, openNewEvent }) => {
   const classes = useStyles()
 
   const goToConference = function () {
-    console.log("Inside the conference")
-    console.log("event clicked")
+    console.log('Inside the conference')
+    console.log('event clicked')
   }
 
   return (
@@ -61,5 +61,3 @@ const TimelineSidebar: React.FC<Props> = ({ events, openNewEvent }) => {
     </Grid>
   )
 }
-
-export default TimelineSidebar

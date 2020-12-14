@@ -1,6 +1,6 @@
-import React, { ReactNode } from "react"
-import BaseLayout, { BaseLayoutProps } from "./BaseLayout"
-import { createStyles, makeStyles } from "@material-ui/core"
+import React, { ReactNode } from 'react'
+import BaseLayout, { BaseLayoutProps } from './BaseLayout'
+import { createStyles, makeStyles } from '@material-ui/core'
 interface LayoutProps extends BaseLayoutProps {
   children: ReactNode
 }
@@ -10,13 +10,12 @@ const useStyles = makeStyles(() => {
     container: {
       minHeight: '100vh',
       display: 'flex',
-      flexDirection: "column",
-      justifyContent: "center",
-      alignItems: "center",
-    }
-
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
   })
-});
+})
 const Layout: React.FC<LayoutProps> = ({ children, ...props }: LayoutProps) => {
   // const [open, setOpen] = React.useState(false)
   // const events = ["Meditation 1.0", "Meditation 2.0", "Meditation 3.0"]
@@ -34,4 +33,3 @@ const Layout: React.FC<LayoutProps> = ({ children, ...props }: LayoutProps) => {
 }
 
 export default Layout
-

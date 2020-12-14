@@ -1,11 +1,11 @@
-import { storiesOf } from "@storybook/react"
+import { storiesOf } from '@storybook/react'
 
-import Button from "./button.component"
+import Button from './button.component'
 
-storiesOf("Button", module).add("with text", () => {
+storiesOf('Button', module).add('with text', () => {
   return <Button text="Hello World" />
 })
 
-storiesOf("Button", module).add("with emoji", () => {
+storiesOf('Button', module).add('with emoji', () => {
   return <Button text="😀 😎 👍 💯" />
 })
