@@ -1,39 +1,30 @@
-import React, { useState } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
-import Grid from '@material-ui/core/Grid';
-import faker from 'faker';
+import React, { useState } from 'react'
+import { makeStyles } from '@material-ui/core/styles'
+import Card from '@material-ui/core/Card'
+import CardActionArea from '@material-ui/core/CardActionArea'
+import CardActions from '@material-ui/core/CardActions'
+import CardContent from '@material-ui/core/CardContent'
+import CardMedia from '@material-ui/core/CardMedia'
+import Button from '@material-ui/core/Button'
+import Typography from '@material-ui/core/Typography'
+import faker from 'faker'
 import EventModal from './EventModal'
+import { Event } from '../../interfaces/generated-types'
 
 interface Props {
-  event: {
-    name: string;
-    title: string;
-    description: string;
-    datetime: Date;
-    duration: number;
-    online: Boolean;
-    location: string;
-  };
-  id: number;
+  event: Event
+  id: number
 }
 
 const useStyles = makeStyles({
   root: {
     maxWidth: 345,
-    borderRaduis: '100px'
+    borderRaduis: '100px',
   },
   media: {
     height: 140,
   },
-});
-
+})
 
 /**
  * This is the EventCard that has  images and will be used on the event timeline and the map
@@ -41,10 +32,10 @@ const useStyles = makeStyles({
  */
 // TODO: This will be the card for an Event that has images
 
-const DetailedEventCard: React.FC<Props> = (props: Props) => {
-  const classes = useStyles();
+const DetailedEventCard: React.FC<Props> = (props) => {
+  const classes = useStyles()
 
-  const [open, setOpen] = useState()
+  const [open, setOpen] = useState<boolean>(false)
   const handleClose = () => {
     setOpen(false)
   }
@@ -61,28 +52,26 @@ const DetailedEventCard: React.FC<Props> = (props: Props) => {
           />
           <CardContent>
             <Typography gutterBottom variant="h5" component="h2">
-              {props.event.name}
-              {console.log("hello")}
-
+              {props.event.title}
+              {console.log('hello')}
             </Typography>
             <Typography variant="body2" color="textSecondary" component="p">
               {props.event.datetime ? props.event.datetime.toString() : null}
               <br />
               {props.event.duration} mins
-          </Typography>
+            </Typography>
           </CardContent>
         </CardActionArea>
         <CardActions>
           <Button size="small" color="primary">
             Add
-        </Button>
+          </Button>
           <Button size="small" color="primary">
             Details
-        </Button>
+          </Button>
           {/* <Button size="small" color="primary" onClick={() => { router.push(`${router.pathname}/${props.event.id}/room`) }} >
             Join
         </Button> */}
-
         </CardActions>
       </Card>
     </>

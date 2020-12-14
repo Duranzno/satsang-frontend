@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from 'react'
-import { makeStyles } from '@material-ui/core/styles';
+//@ts-nocheck
+import React, { useState } from 'react'
+import { makeStyles } from '@material-ui/core/styles'
 import DetailedEventCard from './DetailedEventCard'
-import Grid from '@material-ui/core/Grid';
-import { Button } from '@material-ui/core';
-import faker from "faker";
-import { useGetAllEvents } from '../../interfaces/generated-types';
-
+import Grid from '@material-ui/core/Grid'
+import { Button } from '@material-ui/core'
+import {
+  // useGetAllEvents,
+  Event,
+} from '../../interfaces/generated-types'
 
 const useStyles = makeStyles((theme) => ({
   content: {
@@ -19,49 +21,41 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(0, 1),
     // necessary for content to be below app bar
     ...theme.mixins.toolbar,
-  }
-}));
+  },
+}))
 
-const local = "http://localhost:3001/api/event"
-
-const CardsContainer: React.FC<any> = (props) => {
-
+interface Props {
+  events?: Event[]
+}
+const CardsContainer: React.FC<Props> = ({ events }) => {
   const classes = useStyles()
 
   const [categoryId, setCategoryId] = useState(0)
-  
-  const { data: events } = useGetAllEvents({})
+
+  // const { data: events } = useGetAllEvents({})
 
   const renderCards = () => {
-    let filteredEvents;
-    
-    categoryId ? filteredEvents = props.events.filter(event => event.category === categoryId) : filteredEvents = props.events
+    let filteredEvents: Event[]
 
-    return (
-        events.map(( event, id ) => { return(
-        <Grid
-          item
-          xs={3}
-          justify="center"
-          direction="row"
-          alignItems="flex-start"
-          key={id}
-          >
-
-
+    // categoryId ? filteredEvents = events.filter(event => event.category === categoryId) : filteredEvents = events
+    console.log(filteredEvents)
+    return events?.map((event, id) => {
+      return (
+        <Grid item xs={3} justify="center" direction="row" alignItems="flex-start" key={id}>
           <DetailedEventCard event={event} id={id} />
-        </Grid>)
-    }))
+        </Grid>
+      )
+    })
   }
 
   const renderCategories = () => {
     return categories.map((category) => {
       return (
         <Button
-        data-id={category.name}
-        onClick={(e) => {
-          setCategoryId(e.currentTarget.getAttribute("data-id"))
-        }}
+          data-id={category.name}
+          onClick={(e) => {
+            setCategoryId(e.currentTarget.getAttribute('data-id'))
+          }}
         >
           {category.name}
         </Button>
@@ -72,37 +66,32 @@ const CardsContainer: React.FC<any> = (props) => {
   return (
     <main className={classes.content}>
       <div className={classes.toolbar} />
-      <div style={{ width: "1100px" }}>
+      <div style={{ width: '1100px' }}>
         <Button onClick={() => setCategoryId(0)}>All</Button>
         {console.log(categoryId)}
         {renderCategories()}
         <br></br>
         <br></br>
-        <Grid
-          container
-          item
-          direction="row"
-          alignItems="flex-start"
-          xs={12}
-          spacing={3}
-        >
-          {events ? renderCards() : "Loading" }
+        <Grid container item direction="row" alignItems="flex-start" xs={12} spacing={3}>
+          {events ? renderCards() : 'Loading'}
         </Grid>
       </div>
     </main>
   )
 }
 
-export default CardsContainer;
-
-let categories: Array<object> = [
-  { name: "Mindfulness", id: 1 },
-  { name: "Spiritual", id: 2 },
-  { name: "Focused", id: 3 },
-  { name: "Movement", id: 4 },
-  { name: "Mantra", id: 5 },
-  { name: "Zen", id: 6 } ,
-  { name: "Kundalini", id: 7 }
+export default CardsContainer
+CardsContainer.propTypes = {
+  events: [],
+}
+const categories: Array<object> = [
+  { name: 'Mindfulness', id: 1 },
+  { name: 'Spiritual', id: 2 },
+  { name: 'Focused', id: 3 },
+  { name: 'Movement', id: 4 },
+  { name: 'Mantra', id: 5 },
+  { name: 'Zen', id: 6 },
+  { name: 'Kundalini', id: 7 },
 ]
 
 // const date = faker.date.future()

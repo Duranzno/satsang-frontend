@@ -1,23 +1,22 @@
-import React from 'react';
-import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
-import Modal from '@material-ui/core/Modal';
-import { propTypes } from 'react-bootstrap/esm/Image';
-import faker from 'faker';
+import React from 'react'
+import { makeStyles, Theme, createStyles } from '@material-ui/core/styles'
+import Modal from '@material-ui/core/Modal'
+import faker from 'faker'
+import { Event } from '../../interfaces/generated-types'
 
-
-function rand() {
-  return Math.round(Math.random() * 20) - 10;
-}
+// function rand() {
+//   return Math.round(Math.random() * 20) - 10;
+// }
 
 function getModalStyle() {
-  const top = 50 ;
-  const left = 50 ;
+  const top = 50
+  const left = 50
 
   return {
     top: `${top}%`,
     left: `${left}%`,
     transform: `translate(-${top}%, -${left}%)`,
-  };
+  }
 }
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -35,48 +34,51 @@ const useStyles = makeStyles((theme: Theme) =>
       background: 'lightblue',
       width: '50%',
       height: '50%',
-    
+
       top: '50%',
       left: '50%',
       right: 'auto',
       bottom: 'auto',
-    
+
       transform: 'translate(-50%, -50%)',
-    }
-  }),
-);
+    },
+  })
+)
 
-export default function SimpleModal(props) {
-  const classes = useStyles();
+export const SimpleModal: React.FC<{ event: Event; open: boolean; handleClose: Function }> = ({
+  event,
+  open,
+  handleClose,
+}) => {
+  const classes = useStyles()
   // getModalStyle is not a pure function, we roll the style only on the first render
-  const [modalStyle] = React.useState(getModalStyle);
-  const event = props.event
-
+  const [modalStyle] = React.useState(getModalStyle)
 
   const body = (
     <div style={modalStyle} className={classes.paper}>
-      <img src={faker.image.nature()} alt="calming nature" width="300" height="200"/>
-      <h2 id="simple-modal-title">{event.name}</h2>
+      <img src={faker.image.nature()} alt="calming nature" width="300" height="200" />
+      <h2 id="simple-modal-title">{event.title}</h2>
       <p id="simple-modal-description">
         Description: {event.description}
         <br></br>
         Duration: {event.duration}0 mins
         <br></br>
-        Location: {event.online ? "Online" : event.location}
+        Location: {event.online ? 'Online' : event.location}
       </p>
     </div>
-  );
+  )
 
   return (
     <div>
       <Modal
-        open={props.open}
-        onClose={props.handleClose}
+        open={open}
+        onClose={() => handleClose()}
         aria-labelledby="simple-modal-title"
         aria-describedby="simple-modal-description"
       >
         {body}
       </Modal>
     </div>
-  );
+  )
 }
+export default SimpleModal

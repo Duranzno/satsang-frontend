@@ -1,5 +1,5 @@
-import * as React from "react"
-import { Button } from "@material-ui/core"
+import * as React from 'react'
+import { Button } from '@material-ui/core'
 type Props = {
   text: string
 }
