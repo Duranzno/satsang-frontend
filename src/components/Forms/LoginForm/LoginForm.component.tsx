@@ -1,35 +1,35 @@
-//@ts-nocheck
-import React from "react"
-import { Link, useMutation } from "blitz"
-import { Form, FORM_ERROR } from "app/components/Form"
-import login from "app/auth/mutations/login"
-import { LoginInput } from "app/auth/validations"
-import { Container, Typography, InputAdornment, Grid } from "@material-ui/core"
-import Chevron from "@material-ui/icons/ChevronRight"
-import Person from "@material-ui/icons/Person"
-import Lock from "@material-ui/icons/Lock"
-import { TextField } from "mui-rff"
-import useStyles from "./AuthForm.styles"
-import { strings } from "app/constants"
-type LoginFormProps = {
-  onSuccess?: () => void
+import React from 'react'
+import { Container, Typography, InputAdornment, Grid } from '@material-ui/core'
+
+import useStyles from '../AuthForm.styles'
+import { strings } from '../../../constants'
+import Form from '../Form'
+import { LoginInput, LoginInputType } from '../validations'
+import { FORM_ERROR } from 'final-form'
+import ChevronRight from '@material-ui/icons/ChevronRight'
+import Person from '@material-ui/icons/Person'
+import Lock from '@material-ui/icons/Lock'
+import { TextField } from 'mui-rff'
+import Link from 'next/link'
+
+interface Props {
+  onSuccess?: Function
 }
-export const LoginForm = (props: LoginFormProps) => {
+
+export const LoginForm: React.FC<Props> = (props) => {
   const classes = useStyles()
-
-  const [loginMutation] = useMutation(login)
-
-  const onSubmit = async (values) => {
+  const onSubmit = async (values: LoginInputType) => {
     try {
-      await loginMutation(values)
+      // await loginMutation(values)
+      console.log(await Promise.resolve(values))
       props.onSuccess?.()
     } catch (error) {
-      if (error.name === "AuthenticationError") {
-        return { [FORM_ERROR]: "Sorry, those credentials are invalid" }
+      if (error.name === 'AuthenticationError') {
+        return { [FORM_ERROR]: 'Sorry, those credentials are invalid' }
       } else {
         return {
           [FORM_ERROR]:
-            "Sorry, we had an unexpected error. Please try again. - " + error.toString(),
+            'Sorry, we had an unexpected error. Please try again. - ' + error.toString(),
         }
       }
     }
@@ -41,17 +41,17 @@ export const LoginForm = (props: LoginFormProps) => {
       </Typography>
 
       <Form
-        submitText="Sign In"
+        submitText={strings.auth.loginTitle}
         schema={LoginInput}
-        initialValues={{ email: "", password: "" }}
+        initialValues={{ email: '', password: '' }}
         onSubmit={onSubmit}
         className={classes.form}
         buttonProps={{
-          variant: "contained",
-          color: "secondary",
+          variant: 'contained',
+          color: 'secondary',
           fullWidth: true,
-          size: "large",
-          endIcon: <Chevron />,
+          size: 'large',
+          endIcon: <ChevronRight />,
           className: classes.submit,
         }}
       >
@@ -100,5 +100,3 @@ export const LoginForm = (props: LoginFormProps) => {
     </Container>
   )
 }
-
-export default LoginForm

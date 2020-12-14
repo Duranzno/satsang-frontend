@@ -1,6 +1,6 @@
-import React from "react"
-import { createStyles, makeStyles } from "@material-ui/core"
-import Head from "next/head"
+import React from 'react'
+import { createStyles, makeStyles } from '@material-ui/core'
+import Head from 'next/head'
 
 export interface BaseLayoutProps {
   title?: string
@@ -8,7 +8,7 @@ export interface BaseLayoutProps {
 const useStyles = makeStyles(() =>
   createStyles({
     baseLayoutRoot: {
-      height: "100vh",
+      height: '100vh',
     },
   })
 )
@@ -17,7 +17,7 @@ const BaseLayout: React.FC<BaseLayoutProps> = ({ title, children }) => {
   return (
     <>
       <Head>
-        <title>{title || "meditationApp"}</title>
+        <title>{title || 'meditationApp'}</title>
         <link
           href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,700;1,200;1,300;1,400;1,500;1,700&display=swap"
           rel="stylesheet"
@@ -42,6 +42,7 @@ const BaseLayout: React.FC<BaseLayoutProps> = ({ title, children }) => {
         {/* <meta name="theme-color" content="#ffffff"> */}
       </Head>
       <div className={classes.baseLayoutRoot}>{children}</div>
+      <script src="https://meet.jit.si/external_api.js"></script>
     </>
   )
 }

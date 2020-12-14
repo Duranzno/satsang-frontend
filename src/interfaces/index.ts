@@ -8,3 +8,7 @@ export type User = {
   readonly id: number
   readonly name: string
 }
+export type LatLng = {
+  lat: number
+  lng: number
+}

@@ -1,11 +1,12 @@
 //@ts-nocheck
-import React, { Suspense } from "react"
-import { CardContent, Card, Typography, TextField, Button } from "@material-ui/core"
-import { Form, Field } from "react-final-form"
-import { createStyles, makeStyles, Theme } from "@material-ui/core/styles"
+import React, { Suspense } from 'react'
+import { CardContent, Card, Typography, TextField, Button } from '@material-ui/core'
+import { Form, Field } from 'react-final-form'
+import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
+import { EventInput } from '../../interfaces/generated-types'
 type EventFormProps = {
   initialValues: unknown
-  onSubmit: React.FormEventHandler<HTMLFormElement>
+  onSubmit: (event: EventInput) => void
 }
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -14,15 +15,15 @@ const useStyles = makeStyles((theme: Theme) =>
       width: 250,
     },
     fullList: {
-      width: "auto",
+      width: 'auto',
     },
     root: {
       minWidth: 70,
     },
     bullet: {
-      display: "inline-block",
-      margin: "0 2px",
-      transform: "scale(0.8)",
+      display: 'inline-block',
+      margin: '0 2px',
+      transform: 'scale(0.8)',
     },
     title: {
       fontSize: 20,
@@ -57,8 +58,14 @@ const NewEventForm = ({ initialValues, onSubmit }: EventFormProps) => {
             initialValues={initialValues}
             render={({ handleSubmit, form, values }) => (
               <form onSubmit={handleSubmit}>
+                <br></br>
                 <div>
-                  <Field name="name" component={AdaptedTextField} type="text" />
+                  <Field name="online" component="select">
+                    <option value="true" selected>
+                      Online
+                    </option>
+                    <option value="false">In-Person</option>
+                  </Field>
                 </div>
                 <div>
                   <Field name="title" component={AdaptedTextField} type="text" />
@@ -72,21 +79,7 @@ const NewEventForm = ({ initialValues, onSubmit }: EventFormProps) => {
                 <div>
                   <Field name="duration" component={AdaptedTextField} type="number" />
                 </div>
-                <br></br>
-                <div>
-                  <Field name="online" component="select">
-                    <option value="true" selected>
-                      Online
-                    </option>
-                    <option value="false">In-Person</option>
-                  </Field>
-                </div>
-                {/* <TextField
-                label="Category"
-                name="category"
-                select
-                helperText="Please select a Category"
-              > */}
+
                 <br></br>
                 <Field name="category" component="select">
                   <option key="Mindfulness" value="Mindfulness">

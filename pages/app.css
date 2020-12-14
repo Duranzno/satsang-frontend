@@ -1,0 +1,12 @@
+.top-grid{
+    display: grid;
+}
+
+.top-flex{
+    display: flex;
+    justify-content: center;
+}
+
+.width-div{
+    width: 80%;
+}

@@ -1,38 +1,17 @@
-import React from "react"
-import Card from "@material-ui/core/Card"
-import CardContent from "@material-ui/core/CardContent"
-import Typography from "@material-ui/core/Typography"
-import { ListItem, makeStyles } from "@material-ui/core"
-import { CalendarTodayOutlined, RoomOutlined } from "@material-ui/icons"
-const useStyles = makeStyles({
-  root: {
-    flex: 1,
-    backgroundColor: "#F4F5F7",
-    borderRadius: "16px",
-  },
-  title: {
-    fontSize: 14,
-    fontStyle: "normal",
-    fontWeight: 800,
-  },
-  pos: {
-    marginBottom: 12,
-  },
-  textContainer: {
-    display: "flex",
-    flexDirection: "row",
-    justifyItems: "space-between",
-  },
-  data: {
-    paddingLeft: 6,
-  },
-})
+import React from 'react'
+import Card from '@material-ui/core/Card'
+import CardContent from '@material-ui/core/CardContent'
+import Typography from '@material-ui/core/Typography'
+import { ListItem } from '@material-ui/core'
+import CalendarTodayOutlined from '@material-ui/icons/CalendarTodayOutlined'
+import RoomOutlined from '@material-ui/icons/RoomOutlined'
+import { useStyles } from './TimelineEventCard.styles'
 interface Props {
   text: string
   onClick: Function
 }
 
-const TimelineEventCard: React.FC<Props> = ({ text, onClick }) => {
+export const TimelineEventCard: React.FC<Props> = ({ text, onClick }) => {
   const classes = useStyles()
   return (
     <ListItem button key={text}>
@@ -58,5 +37,3 @@ const TimelineEventCard: React.FC<Props> = ({ text, onClick }) => {
     </ListItem>
   )
 }
-
-export default TimelineEventCard

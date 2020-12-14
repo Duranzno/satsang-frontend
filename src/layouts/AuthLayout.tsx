@@ -1,18 +1,18 @@
-import { createStyles, Grid, makeStyles, Theme } from "@material-ui/core"
-import React from "react"
-import BaseLayout, { BaseLayoutProps } from "./BaseLayout"
+import { createStyles, Grid, makeStyles, Theme } from '@material-ui/core'
+import React from 'react'
+import BaseLayout, { BaseLayoutProps } from './BaseLayout'
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     authRoot: {
-      height: "100vh",
-      flexDirection: "row",
+      height: '100vh',
+      flexDirection: 'row',
     },
     formContainer: {
       margin: theme.spacing(8, 4),
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
     },
   })
 )
