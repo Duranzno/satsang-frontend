@@ -5,12 +5,13 @@ import React, {useState} from 'react'
 
 const Signup : React.FC<Props> = () => {
 
-    const [username, setUsername] = useState(null)
-    const [password, setPassword] = useState(null)
-    const [email, setEmail] = useState(null)
-    const local = "http://localhost:3001/api/event"
+    const [username, setUsername] = useState("username")
+    const [password, setPassword] = useState("password")
+    const [email, setEmail] = useState("ex@example.com")
+    const local = "http://localhost:3001/api/auth/signup"
 
-    const handleSubmit = () => {
+    const handleSubmit = (e) => {
+        e.preventDefault()
         fetch(local,{
             method: "POST",
             headers: {
@@ -19,7 +20,7 @@ const Signup : React.FC<Props> = () => {
               Accept: 'application/json'
             },
             body: JSON.stringify({
-              username,
+              name: username,
               email,
               password
             })
@@ -35,7 +36,7 @@ const Signup : React.FC<Props> = () => {
         <>
             <p>Signup</p>
 
-            <form onSubmit={() => handleSubmit()}>
+            <form onSubmit={(e) => handleSubmit(e)}>
                 <input type="text" onChange={(e)=> setUsername(e.target.value)}/>
                 <br>
                 </br>

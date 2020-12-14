@@ -6,6 +6,7 @@ import CardsContainer from "../../src/components/Event/CardsContainer";
 
 const EventsPage: NextPage = () => {
 
+
   return (
     <>
         {/* This button opens right sidebar */}

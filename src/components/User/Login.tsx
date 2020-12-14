@@ -4,11 +4,14 @@ import React, { useState } from 'react'
 
 const Login : React.FC<Props> = () => {
 
-    const [email, setEmail] = useState(null)
-    const [password, setPassword] = useState(null)
-    const local = "http://localhost:3001/api/event"
+    const [email, setEmail] = useState("ex@example.com")
+    const [password, setPassword] = useState("password")
+    const local = "http://localhost:3001/api/auth/login"
 
-    const handleSubmit = () => {
+
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
         fetch(local,{
             method: "POST",
             headers: {
@@ -22,8 +25,8 @@ const Login : React.FC<Props> = () => {
             })
           })
             .then(response => response.json())
-            .then( event => {
-              console.log(event)
+            .then( user => {
+              localStorage.setItem("session", user.id)
             })
             .catch(error => console.log(error.message))
     }
@@ -31,7 +34,7 @@ const Login : React.FC<Props> = () => {
     return (
         <>
             <p>Login</p>
-            <form onSubmit={() => handleSubmit()}>
+            <form onSubmit={(e) => handleSubmit(e)}>
                 <input type="text" onChange={(e)=> setEmail(e.target.value)}/>
                 <br>
                 </br>

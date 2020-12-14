@@ -1,3 +1,4 @@
+import React, {useEffect, useState} from 'react'
 import Container from "@material-ui/core/Container"
 import Typography from "@material-ui/core/Typography"
 import Box from "@material-ui/core/Box"
@@ -11,6 +12,7 @@ import Signup from "../src/components/User/Signup"
 export default function Index() {
   // const { data: events } = useGetAllEvents({})
 
+
   return (
   <div className="top-grid">
     <div className="top-flex">
@@ -19,8 +21,7 @@ export default function Index() {
           <Box my={4}>
             <Typography variant="h4" component="h1" gutterBottom>
               Next.js example Hello
-              <Login/>
-              <Signup/>
+               <Login/>
             </Typography>
             <ProTip />
             <Copyright />

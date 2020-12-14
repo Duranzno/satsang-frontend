@@ -23,6 +23,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     }
   }, [])
 
+
   const events = ["event1", "event2", "event3"]
 
   const [sidebarOpen, setSidebarOpen] = useState(false)
@@ -39,11 +40,15 @@ function MyApp({ Component, pageProps }: AppProps) {
       <ThemeProvider theme={theme}>
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
+
         <Component {...pageProps} />
+
         <StaticSidebar>
           <TimelineSidebar events={events} openNewEvent={() => setSidebarOpen(true)} />
         </StaticSidebar>
+
         <NewEventSidebar open={sidebarOpen} onClose={() => onClose()} />
+        
       </ThemeProvider>
     </React.Fragment>
   )

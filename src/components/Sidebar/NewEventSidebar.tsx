@@ -36,36 +36,39 @@ const NewEventSidebar: React.FC<Props> = ({ open, onClose }) => {
         <NewEventForm
           initialValues={newEventValues}
           onSubmit={ async (_evt) => {
-            try{ 
-              useAddEvent({
-                    title: _evt.title, 
-                    online: _evt.online,
-                    description: _evt.description,
-                    datetime: _evt.datetime,
-                    duration: parseInt(_evt.duration)
-                  })
+            // try{ 
+            //   useAddEvent({
+            //         title: _evt.title, 
+            //         online: _evt.online,
+            //         description: _evt.description,
+            //         datetime: _evt.datetime,
+            //         duration: parseInt(_evt.duration)
+            //       })
                 
             // const real = "https://satsang-app.herokuapp.com/api/event"
             // const mock = "https://virtserver.swaggerhub.com/Duranzno/satsang/1.0.0"
             const local = "http://localhost:3001/api/event"
             // console.log(_evt)
-            // try {
-            //   console.log("creating new event")
-            //   fetch(local,{
-            //     method: "POST",
-            //     headers: {
-            //       'Access-Control-Allow-Origin':'*',
-            //       'Content-Type': 'application/json',
-            //       Accept: 'application/json'
-            //     },
-            //     body: JSON.stringify({
-            //       title: _evt.title, 
-            //       online: _evt.online,
-            //       description: _evt.description,
-            //       datetime: _evt.datetime,
-            //       duration: parseInt(_evt.duration)
-            //     })
-            //   })
+            try {
+              console.log("creating new event")
+              fetch(local,{
+                method: "POST",
+                headers: {
+                  'Access-Control-Allow-Origin':'*',
+                  'Content-Type': 'application/json',
+                  Accept: 'application/json'
+                },
+                body: JSON.stringify({
+                  title: _evt.title, 
+                  online: _evt.online,
+                  description: _evt.description,
+                  datetime: _evt.datetime,
+                  duration: parseInt(_evt.duration),
+                  User: {
+                    connect: { id: parseInt(localStorage.getItem("session"))}
+                  }
+                })
+              })
                 .then(response => response.json())
                 .then( event => {
                   console.log(event)
