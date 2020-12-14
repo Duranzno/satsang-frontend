@@ -6,7 +6,6 @@ import { Map } from './Map.component.component'
 
 export const MapWithMarkers: React.FC<{ events: Event[]; onMarkerClick: (e: Event) => void }> = ({
   events,
-  onMarkerClick,
 }) => {
   const [infoBoxShown, setInfoBoxShown] = React.useState<number>()
   React.useEffect(() => {
@@ -15,11 +14,11 @@ export const MapWithMarkers: React.FC<{ events: Event[]; onMarkerClick: (e: Even
   return (
     <Map>
       {events.map((e) => {
-        const { location: l, title, id } = e
-        const hasData =
-          l?.coordinates && l?.coordinates && l?.coordinates?.lat && l?.coordinates?.lng
-        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-        const { lat, lng } = l!.coordinates!
+        const { title, id } = e
+        const hasData = false
+        // l?.coordinates && l?.coordinates && l?.coordinates?.lat && l?.coordinates?.lng
+
+        const { lat, lng } = { lat: 0, lng: 0 } //l!.coordinates!
         const isHidden = !(infoBoxShown === id)
 
         const toggleShown = (_a: unknown) => {

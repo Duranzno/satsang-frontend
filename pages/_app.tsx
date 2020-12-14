@@ -6,6 +6,7 @@ import { AppProps } from 'next/dist/next-server/lib/router/router'
 import theme from '../src/interfaces/theme'
 import { StaticSidebar, TimelineSidebar, NewEventSidebar } from '../src/components/Sidebar'
 import { RestfulProvider } from 'restful-react'
+import './app.css'
 
 if (process.env.NODE_ENV !== 'production') {
   require('../mocks')
@@ -21,7 +22,9 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, [])
   const events = ['event1', 'event2', 'event3']
   const [sidebarOpen, setSidebarOpen] = useState(false)
+
   const onClose = () => setSidebarOpen(false)
+
   return (
     <React.Fragment>
       <Head>
