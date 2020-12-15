@@ -6,8 +6,8 @@ import { LatLng } from '../../interfaces'
 import { googleMapsApiKey, parseMouseEventLatLng } from './map.utils'
 
 const containerStyle = {
-  width: '400px',
-  height: '400px',
+  width: '700px',
+  height: '700px',
 }
 
 type Props = {
@@ -33,10 +33,13 @@ export const Map: React.FC<Props> = ({ children, onClick }) => {
     onClick?.(position)
   }
   return (
+    <div className="center-center">
     <LoadScript googleMapsApiKey={googleMapsApiKey}>
       <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={10} onClick={mapClick}>
         {children}
       </GoogleMap>
     </LoadScript>
+    </div>
+
   )
 }

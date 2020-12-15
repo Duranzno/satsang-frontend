@@ -11,13 +11,9 @@ const EventsPage: NextPage = () => {
   return (
     <>
       {/* This button opens right sidebar */}
-      <div className="top-grid">
-        <div className="top-flex">
-          <div className="width-div">
+      <>
             <EventContainer events={events} />
-          </div>
-        </div>
-      </div>
+      </>
     </>
   )
 }

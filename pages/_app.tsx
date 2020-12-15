@@ -36,7 +36,13 @@ function MyApp({ Component, pageProps }: AppProps) {
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
         <RestfulProvider base={base}>
-          <Component {...pageProps} />
+        <div className="top-grid">
+          <div className="top-flex">
+            <div className="width-div">
+            <Component {...pageProps} />
+            </div>
+          </div>
+        </div>
           <StaticSidebar>
             <TimelineSidebar events={events} openNewEvent={() => setSidebarOpen(true)} />
           </StaticSidebar>
