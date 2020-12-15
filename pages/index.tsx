@@ -12,7 +12,7 @@ import Signup from '../src/components/User/Signup'
 export default function Index() {
   // const { data: events } = useGetAllEvents({})
 
-  const { data: events } = useGetAllEvents({})
+  // const { data: events } = useGetAllEvents({})
   return (
     <div className="top-grid">
       <div className="top-flex">
@@ -21,7 +21,7 @@ export default function Index() {
             <Box my={4}>
               <Typography variant="h4" component="h1" gutterBottom>
                 Next.js example Hello
-                <p>{JSON.stringify(events)}</p>
+                {/* <p>{JSON.stringify(events)}</p> */}
                 <Login />
                 <Signup />
               </Typography>

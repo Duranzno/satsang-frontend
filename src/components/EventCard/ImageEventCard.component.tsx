@@ -1,7 +1,9 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { CardActionArea, CardMedia, makeStyles, Theme } from '@material-ui/core'
 import { formatDistanceToNow } from 'date-fns'
 import { Event } from '../../interfaces/generated-types'
+import faker from 'faker'
+import EventModal from '../Event/EventModal'
 
 import Card from '@material-ui/core/Card'
 import CardContent from '@material-ui/core/CardContent'
@@ -15,17 +17,23 @@ interface Props {
 }
 
 export const ImageEventCard: React.FC<Props> = ({ onClick: propOnClick, color, event }) => {
-  const { title, photoUrls, datetime } = event
+  const { title, location, photoUrls, datetime } = event
   const classes = useStyles({ color: color ?? '#F95A2C' })
+  const [open, setOpen] = useState<boolean>(false)
+  const handleClose = () => {
+    setOpen(false)
+  }
   const onClick = () => propOnClick(event)
   const date = formatDistanceToNow(new Date(datetime))
   return (
+    <>
+    <EventModal open={open} event={event} handleClose={handleClose} />
     <Card className={classes.root}>
-      <CardActionArea onClick={onClick}>
-        {photoUrls[0] && (
+      <CardActionArea onClick={() => setOpen(true)}>
+        {faker.image.nature() && (
           <CardMedia
             className={classes.media}
-            image={photoUrls[0]}
+            image={faker.image.nature()}
             title={`${title} Event Image`}
           />
         )}
@@ -42,7 +50,8 @@ export const ImageEventCard: React.FC<Props> = ({ onClick: propOnClick, color, e
               noWrap
               gutterBottom
             >
-              Milk way,Mars
+              {faker.address.city()}
+              
             </Typography>
           </div>
           <div className={classes.subContainer}>
@@ -54,6 +63,7 @@ export const ImageEventCard: React.FC<Props> = ({ onClick: propOnClick, color, e
         </CardContent>
       </CardActionArea>
     </Card>
+    </>
   )
 }
 

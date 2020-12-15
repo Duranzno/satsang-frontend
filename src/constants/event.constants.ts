@@ -12,3 +12,14 @@ export const onlineData: SwitchData[] = [
   { value: true, label: "Online" },
   { value: false, label: "Offline" },
 ]
+const CategotyOptions = ['Mindfulness',
+'Spiritual',
+'Focused',
+'Movement',
+'Mantra',
+'Zen',
+'Kundalini',]
+export const categoryData: SelectData[] = CategotyOptions.map((cat, id) => ({
+    value: id,
+    label: `${cat}`
+  }))

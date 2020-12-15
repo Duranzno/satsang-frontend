@@ -20,6 +20,7 @@ export const strings = {
     date: "Date",
     duration: "Duration (mins)",
     online: "Is this an online event?",
+    category: "Category"
   },
   min: "min",
   upload: "Upload Image"

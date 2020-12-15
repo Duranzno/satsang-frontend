@@ -6,7 +6,7 @@ import { Container, Typography, Grid } from '@material-ui/core'
 import Save from '@material-ui/icons/Save'
 import { EventInput, EventInputDefault, EventInputType } from './validations'
 import { getDateTime } from '../../../utils'
-import { durationData, strings } from '../../../constants'
+import { categoryData, durationData, strings } from '../../../constants'
 import { Suspense } from 'react'
 type EventFormProps = {
   onSubmit: (event: object) => void
@@ -40,14 +40,14 @@ export const EventForm: React.FC<EventFormProps> = (props) => {
       required
       fullWidth
     />,
-    <TextField
-      variant="outlined"
-      name="name"
-      label={strings.event.name}
-      placeholder={strings.event.name}
-      required
-      fullWidth
-    />,
+    // <TextField
+    //   variant="outlined"
+    //   name="name"
+    //   label={strings.event.name}
+    //   placeholder={strings.event.name}
+    //   required
+    //   fullWidth
+    // />,
     <TextField
       multiline
       variant="outlined"
@@ -82,6 +82,8 @@ export const EventForm: React.FC<EventFormProps> = (props) => {
     />,
     <Select name="duration" data={durationData} label={strings.event.duration} />,
     <Switches label={strings.event.online} name="online" data={{ label: 'online', value: true }} />,
+    // <Select name="categoryId" data={categoryData} label={strings.event.category} />,
+
   ]
   return (
     <Suspense fallback={<div>Loading...</div>}>

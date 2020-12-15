@@ -28,6 +28,8 @@ const useStyles = makeStyles((theme: Theme) =>
       border: '2px solid #000',
       boxShadow: theme.shadows[5],
       padding: theme.spacing(2, 4, 3),
+      borderRadius: '40px',
+      outline: 'none !important'
     },
     modalSize: {
       position: 'fixed',
@@ -61,9 +63,11 @@ export const SimpleModal: React.FC<{ event: Event; open: boolean; handleClose: F
       <p id="simple-modal-description">
         Description: {event.description}
         <br></br>
-        Duration: {event.duration}0 mins
+        Duration: {event.duration} mins
         <br></br>
         Location: {event.online ? 'Online' : event.location}
+        <br></br>
+         {event.category ? `Category: ${event.category}` : null}
       </p>
     </div>
   )
