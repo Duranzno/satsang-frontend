@@ -14,7 +14,7 @@ import { useStyles } from './StaticSidebar.styles'
 import Link from 'next/link'
 import { Avatar, ButtonBase } from '@material-ui/core'
 import { Logout } from '../../Forms/Logout/Logout'
-import {session} from '../SessionHook'
+import {session} from '../../Forms/SessionHook'
 
 
 /**
@@ -48,7 +48,7 @@ export const StaticSidebar: React.FC = ({ children }) => {
     { name: 'Categories', icon: <LocalOfferIcon fontSize="large" />, href: '/categories' },
     { name: 'Local Events', icon: <RoomIcon fontSize="large" />, href: '/local' },
     { name: 'Room', icon: <VideocamIcon fontSize="large" />, href: '/' },
-    session !== '' ? { name: 'Logout', icon: <Logout/>, href: '/' } : { name: 'Login', icon: "Login", href: '/login' },
+    session === '' ? { name: 'Login', icon: "Login", href: '/login' } : { name: 'Logout', icon: <Logout/>, href: '/' } ,
     
   ]
   return (

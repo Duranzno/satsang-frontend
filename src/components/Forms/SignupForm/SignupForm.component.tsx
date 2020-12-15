@@ -9,6 +9,7 @@ import { FORM_ERROR } from 'final-form'
 import { TextField } from 'mui-rff'
 import Link from 'next/link'
 import { useCreateUser } from '../../../interfaces/generated-types'
+import { useRouter } from 'next/router'
 
 interface Props {
   onSuccess?: Function
@@ -19,11 +20,14 @@ export const SignupForm: React.FC<Props> = (props) => {
 
   const { mutate: send } = useCreateUser({})
 
+  const router = useRouter()
+
   const onSubmit = async (values: SignupInputType) => {
     try {
       console.log(values)
       console.log('creating new user')
-      send(values).then(console.log)
+      send(values).then(router.push('/login'))
+      
       props.onSuccess?.()
     } catch (error) {
       if (error.code === 'P2002' && error.meta?.target?.includes('email')) {

@@ -2,7 +2,7 @@ import React from 'react'
 import Drawer from '@material-ui/core/Drawer'
 import { EventForm, LoginForm } from '../../Forms'
 import { EventInput, useAddEvent } from '../../../interfaces/generated-types'
-import {session} from '../SessionHook'
+import {session} from '../../Forms/SessionHook'
 
 
 /**

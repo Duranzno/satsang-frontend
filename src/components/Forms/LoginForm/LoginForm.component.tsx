@@ -12,8 +12,8 @@ import Lock from '@material-ui/icons/Lock'
 import { TextField } from 'mui-rff'
 import Link from 'next/link'
 import { useLoginUser } from '../../../interfaces/generated-types'
-import {session, startSession} from '../SessionHook'
-
+import { startSession} from '../SessionHook'
+import { useRouter } from 'next/router'
 
 interface Props {
   onSuccess?: Function
@@ -21,6 +21,8 @@ interface Props {
 
 export const LoginForm: React.FC<Props> = (props) => {
   const classes = useStyles()
+
+  const router = useRouter()
 
   const { mutate: send } = useLoginUser({})
 
@@ -30,6 +32,7 @@ export const LoginForm: React.FC<Props> = (props) => {
       send(values).then(user => {
         console.log(user)
         startSession(user)
+        router.push('/events')
       })
       console.log(await Promise.resolve(values))
       props.onSuccess?.()

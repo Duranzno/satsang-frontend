@@ -2,6 +2,7 @@ import React from 'react'
 import { useLogout } from '../../../interfaces/generated-types'
 import { Button } from '@material-ui/core';
 import {session, endSession} from '../SessionHook'
+import { useRouter } from 'next/router';
 
 /**
  * This is the Sidebar that will show:
@@ -14,23 +15,23 @@ interface Props {
     
 }
 
-const ISSERVER = typeof window === "undefined";
-
-export const Logout: React.FC<Props> = ({ open, onClose }) => {
+export const Logout: React.FC<Props> = () => {
 
   const { mutate: send } = useLogout({})
 
+  const router = useRouter()
+
   const handleLogout = async () => {
     try {
-
-    if(session.token)
-      send(session).then(console.log).then(endSession())
-
+      if(session !== ''){
+        send(session).then(console.log).then(endSession()).then(router.push('/login'))
+      }
     } catch (error) {
+      console.log(session)
     alert('Error logging out ' + JSON.stringify(error, null, 2))
     }
   }
-  
+
   return (
     <div>
         <Button onClick={handleLogout}>
