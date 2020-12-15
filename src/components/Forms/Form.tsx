@@ -31,7 +31,7 @@ export function Form<S extends z.ZodType<any, any>>({
       validate={(values) => {
         if (!schema) return
         try {
-          console.log(values)
+          // console.log(values)
           schema.parse(values)
         } catch (error) {
           console.error(error)

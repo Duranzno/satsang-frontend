@@ -1,6 +1,6 @@
 import React from 'react'
 import Drawer from '@material-ui/core/Drawer'
-import { EventForm } from '../../Forms'
+import { EventForm, LoginForm } from '../../Forms'
 import { EventInput, useAddEvent } from '../../../interfaces/generated-types'
 
 
@@ -16,14 +16,16 @@ interface Props {
   onClose: Function
 }
 
+const ISSERVER = typeof window === "undefined";
+
 export const NewEventSidebar: React.FC<Props> = ({ open, onClose }) => {
 
   const { mutate: send } = useAddEvent({})
-
+  const session = !ISSERVER ? localStorage.getItem("session") : ''
   return (
     <div>
       <Drawer anchor="right" open={open} onClose={() => onClose()}>
-        <EventForm
+        {session !== '' ? <EventForm
           onSubmit={async (_evt: EventInput) => {
             try {
               console.log('creating new event')
@@ -33,7 +35,8 @@ export const NewEventSidebar: React.FC<Props> = ({ open, onClose }) => {
               alert('Error creating event ' + JSON.stringify(error, null, 2))
             }
           }}
-        />
+        /> :
+        <LoginForm/>}
       </Drawer>
     </div>
   )

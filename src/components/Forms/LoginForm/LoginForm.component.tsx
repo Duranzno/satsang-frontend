@@ -11,6 +11,7 @@ import Person from '@material-ui/icons/Person'
 import Lock from '@material-ui/icons/Lock'
 import { TextField } from 'mui-rff'
 import Link from 'next/link'
+import { useLoginUser } from '../../../interfaces/generated-types'
 
 interface Props {
   onSuccess?: Function
@@ -18,11 +19,20 @@ interface Props {
 
 export const LoginForm: React.FC<Props> = (props) => {
   const classes = useStyles()
+
+  const { mutate: send } = useLoginUser({})
+
   const onSubmit = async (values: LoginInputType) => {
     try {
       // await loginMutation(values)
+      send(values).then(user => {
+        console.log(user)
+        localStorage.setItem("session", user ? user.id : '')
+      })
       console.log(await Promise.resolve(values))
       props.onSuccess?.()
+      
+      console.log(localStorage.getItem("session"))
     } catch (error) {
       if (error.name === 'AuthenticationError') {
         return { [FORM_ERROR]: 'Sorry, those credentials are invalid' }

@@ -2,15 +2,12 @@ import Container from '@material-ui/core/Container'
 import Typography from '@material-ui/core/Typography'
 import Box from '@material-ui/core/Box'
 
-import ProTip from '../src/ProTip'
 import Copyright from '../src/Copyright'
-import { useGetAllEvents } from '../src/interfaces/generated-types'
 
 
 import {LoginForm} from '../src/components/Forms/LoginForm/LoginForm.component'
-import {SignupForm} from '../src/components/Forms/SignupForm/SignupForm.component'
 
-export default function Index() {
+export default function Login() {
   // const { data: events } = useGetAllEvents({})
 
   // const { data: events } = useGetAllEvents({})
@@ -23,7 +20,6 @@ export default function Index() {
               <Typography variant="h4" component="h1" gutterBottom>
                 {/* <p>{JSON.stringify(events)}</p> */}
                 <LoginForm />
-                <SignupForm />
               </Typography>
               {/* <ProTip /> */}
               <Copyright />

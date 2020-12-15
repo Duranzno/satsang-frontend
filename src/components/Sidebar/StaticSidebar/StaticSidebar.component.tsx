@@ -13,13 +13,15 @@ import Grid from '@material-ui/core/Grid'
 import { useStyles } from './StaticSidebar.styles'
 import Link from 'next/link'
 import { Avatar, ButtonBase } from '@material-ui/core'
+import { Logout } from '../../Forms/Logout/Logout'
 
 /**
  * This is the Sidebar that will show:
  *  * The user's next schedule events
  *  * A button to create a new event and open the NewEventSidebar
  */
-
+const ISSERVER = typeof window === "undefined";
+const session = !ISSERVER ? localStorage.getItem("session") : ''
 const StaticSidebarIcon: React.FC<{ className: string }> = ({ children, className }) => (
   <ListItem className={className}>
     <ListItemIcon>{children}</ListItemIcon>
@@ -45,6 +47,8 @@ export const StaticSidebar: React.FC = ({ children }) => {
     { name: 'Categories', icon: <LocalOfferIcon fontSize="large" />, href: '/categories' },
     { name: 'Local Events', icon: <RoomIcon fontSize="large" />, href: '/local' },
     { name: 'Room', icon: <VideocamIcon fontSize="large" />, href: '/' },
+    session !== '' ? { name: 'Logout', icon: <Logout/>, href: '/' } : { name: 'Login', icon: "Login", href: '/login' },
+    
   ]
   return (
     <div className={classes.root}>

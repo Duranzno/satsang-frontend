@@ -8,6 +8,7 @@ import { SignupInput, SignupInputType } from '../validations'
 import { FORM_ERROR } from 'final-form'
 import { TextField } from 'mui-rff'
 import Link from 'next/link'
+import { useCreateUser } from '../../../interfaces/generated-types'
 
 interface Props {
   onSuccess?: Function
@@ -15,9 +16,14 @@ interface Props {
 
 export const SignupForm: React.FC<Props> = (props) => {
   const classes = useStyles()
+
+  const { mutate: send } = useCreateUser({})
+
   const onSubmit = async (values: SignupInputType) => {
     try {
       console.log(values)
+      console.log('creating new user')
+      send(values).then(console.log)
       props.onSuccess?.()
     } catch (error) {
       if (error.code === 'P2002' && error.meta?.target?.includes('email')) {
