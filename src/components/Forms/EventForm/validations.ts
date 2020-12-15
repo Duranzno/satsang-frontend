@@ -1,6 +1,6 @@
 import * as z from "zod"
 import { EventDurationStep } from "../../../constants"
-const ISSERVER = typeof window === "undefined";
+import {session} from '../SessionHook'
 
 export const EventInput = z.object({
   title: z.string().min(2),
@@ -10,7 +10,7 @@ export const EventInput = z.object({
   duration: z.number(),
   online: z.boolean(),
   User: {
-       connect: { id: !ISSERVER ? parseInt(localStorage.getItem("session")) : ''}
+       connect: { id: session ? parseInt(session) : ''}
         }
 })
 export type EventInputType = z.infer<typeof EventInput>

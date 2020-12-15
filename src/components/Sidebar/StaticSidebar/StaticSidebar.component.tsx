@@ -14,14 +14,15 @@ import { useStyles } from './StaticSidebar.styles'
 import Link from 'next/link'
 import { Avatar, ButtonBase } from '@material-ui/core'
 import { Logout } from '../../Forms/Logout/Logout'
+import {session} from '../SessionHook'
+
 
 /**
  * This is the Sidebar that will show:
  *  * The user's next schedule events
  *  * A button to create a new event and open the NewEventSidebar
  */
-const ISSERVER = typeof window === "undefined";
-const session = !ISSERVER ? localStorage.getItem("session") : ''
+
 const StaticSidebarIcon: React.FC<{ className: string }> = ({ children, className }) => (
   <ListItem className={className}>
     <ListItemIcon>{children}</ListItemIcon>

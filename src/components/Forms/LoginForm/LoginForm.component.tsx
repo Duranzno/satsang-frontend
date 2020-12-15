@@ -12,6 +12,8 @@ import Lock from '@material-ui/icons/Lock'
 import { TextField } from 'mui-rff'
 import Link from 'next/link'
 import { useLoginUser } from '../../../interfaces/generated-types'
+import {session, startSession} from '../SessionHook'
+
 
 interface Props {
   onSuccess?: Function
@@ -27,12 +29,11 @@ export const LoginForm: React.FC<Props> = (props) => {
       // await loginMutation(values)
       send(values).then(user => {
         console.log(user)
-        localStorage.setItem("session", user ? user.id : '')
+        startSession(user)
       })
       console.log(await Promise.resolve(values))
       props.onSuccess?.()
       
-      console.log(localStorage.getItem("session"))
     } catch (error) {
       if (error.name === 'AuthenticationError') {
         return { [FORM_ERROR]: 'Sorry, those credentials are invalid' }

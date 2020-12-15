@@ -2,6 +2,7 @@ import React from 'react'
 import Drawer from '@material-ui/core/Drawer'
 import { EventForm, LoginForm } from '../../Forms'
 import { EventInput, useAddEvent } from '../../../interfaces/generated-types'
+import {session} from '../SessionHook'
 
 
 /**
@@ -16,12 +17,10 @@ interface Props {
   onClose: Function
 }
 
-const ISSERVER = typeof window === "undefined";
 
 export const NewEventSidebar: React.FC<Props> = ({ open, onClose }) => {
 
   const { mutate: send } = useAddEvent({})
-  const session = !ISSERVER ? localStorage.getItem("session") : ''
   return (
     <div>
       <Drawer anchor="right" open={open} onClose={() => onClose()}>
